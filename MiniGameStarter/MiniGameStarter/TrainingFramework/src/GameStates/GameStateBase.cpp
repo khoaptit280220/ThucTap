@@ -5,6 +5,8 @@
 #include "GSPlay.h"
 #include "GSIntro.h"
 #include "GSMenu.h"
+#include "GSOption.h"
+#include "GSCredit.h"
 
 #include "GameStatebase.h"
 
@@ -24,9 +26,16 @@ std::shared_ptr<GameStateBase> GameStateBase::CreateState(StateType stt)
 	case StateType::STATE_MENU:
 		gs = std::make_shared<GSMenu>();
 		break;
+	case StateType::STATE_OPTION:
+		gs = std::make_shared<GSOption>();
+		break;
+	case StateType:: STATE_CREDIT:
+		gs = std::make_shared<GSCredit>();
+		break;
 	case StateType::STATE_PLAY:
 		gs = std::make_shared<GSPlay>();
 		break;
+			
 	default:
 		break;
 	}

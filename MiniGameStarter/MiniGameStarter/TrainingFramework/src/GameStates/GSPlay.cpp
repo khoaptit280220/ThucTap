@@ -26,7 +26,7 @@ GSPlay::~GSPlay()
 void GSPlay::Init()
 {
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_play1.tga");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("backgroundKhoa.tga");
 
 	// background
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
@@ -34,6 +34,8 @@ void GSPlay::Init()
 	m_background->Set2DPosition((float)Globals::screenWidth / 2, (float)Globals::screenHeight / 2);
 	m_background->SetSize(Globals::screenWidth, Globals::screenHeight);
 
+	// button pause 
+	
 	// button close
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");
 	std::shared_ptr<GameButton>  button = std::make_shared<GameButton>(model, shader, texture);
@@ -51,10 +53,10 @@ void GSPlay::Init()
 	m_score->Set2DPosition(Vector2(5, 25));
 
 	shader = ResourceManagers::GetInstance()->GetShader("Animation");
-	texture = ResourceManagers::GetInstance()->GetTexture("Actor1_2.tga");
+	texture = ResourceManagers::GetInstance()->GetTexture("fishKhoa.tga");
 	std::shared_ptr<SpriteAnimation> obj = std::make_shared<SpriteAnimation>(model, shader, texture, 9, 6, 3, 0.1f);
 	
-	obj->Set2DPosition(240, 400);
+	obj->Set2DPosition(240, 650);
 	obj->SetSize(30, 40);
 	m_listAnimation.push_back(obj);
 	m_KeyPress = 0;
