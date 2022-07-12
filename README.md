@@ -1,4 +1,4 @@
-Tên game: Hứng đồ
+Tên game: Fish Run
 Ý tưởng:
-- Nhân vật sẽ di chuyển để hứng đồ vật rơi từ trên xuống
-- Nếu hứng phải bom hoặc không hứng được trên 10 đồ vật thì trò chơi kết thúc
+- Di chuyển con cá để tránh chướng ngại vật và ăn đồng tiền
+- Trò chơi kết thúc khi di chuyển con cá vào chướng ngại v
