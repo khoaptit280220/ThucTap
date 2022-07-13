@@ -34,6 +34,12 @@ void GSPlay::Init()
 	m_background->Set2DPosition((float)Globals::screenWidth / 2, (float)Globals::screenHeight / 2);
 	m_background->SetSize(Globals::screenWidth, Globals::screenHeight);
 
+	//fish
+	texture = ResourceManagers::GetInstance()->GetTexture("fishKhoa.tga");
+	m_fish = std::make_shared<Sprite2D>(model, shader, texture);
+	m_fish->Set2DPosition(240, 650);
+	m_fish->SetSize(100, 150);
+
 	// button pause 
 	
 	// button close
@@ -52,13 +58,7 @@ void GSPlay::Init()
 	m_score = std::make_shared< Text>(shader, font, "score: 10", TextColor::RED, 1.0);
 	m_score->Set2DPosition(Vector2(5, 25));
 
-	shader = ResourceManagers::GetInstance()->GetShader("Animation");
-	texture = ResourceManagers::GetInstance()->GetTexture("fishKhoa.tga");
-	std::shared_ptr<SpriteAnimation> obj = std::make_shared<SpriteAnimation>(model, shader, texture, 9, 6, 3, 0.1f);
 	
-	obj->Set2DPosition(240, 650);
-	obj->SetSize(30, 40);
-	m_listAnimation.push_back(obj);
 	m_KeyPress = 0;
 }
 
@@ -86,18 +86,14 @@ void GSPlay::HandleKeyEvents(int key, bool bIsPressed)
 	{
 		switch (key)
 		{
-		case KEY_MOVE_LEFT:
-			m_KeyPress |= 1;
+		case 'A':
+			m_KeyPress |= KEY_LEFT;
 			break;
-		case KEY_MOVE_BACKWORD:
-			m_KeyPress |= 1<<1;
+	
+		case 'D':
+			m_KeyPress |= KEY_RIGHT;
 			break;
-		case KEY_MOVE_RIGHT:
-			m_KeyPress |= 1<<2;
-			break;
-		case KEY_MOVE_FORWORD:
-			m_KeyPress |= 1<<3;
-			break;
+		
 		default:
 			break;
 		}
@@ -106,18 +102,14 @@ void GSPlay::HandleKeyEvents(int key, bool bIsPressed)
 	{
 		switch (key)
 		{
-		case KEY_MOVE_LEFT:
-			m_KeyPress ^= 1;
+		case 'A':
+			m_KeyPress ^= KEY_LEFT;
 			break;
-		case KEY_MOVE_BACKWORD:
-			m_KeyPress ^= 1 << 1;
+
+		case 'D':
+			m_KeyPress ^= KEY_RIGHT;
 			break;
-		case KEY_MOVE_RIGHT:
-			m_KeyPress ^= 1 << 2;
-			break;
-		case KEY_MOVE_FORWORD:
-			m_KeyPress ^= 1 << 3;
-			break;
+		
 		default:
 			break;
 		}
@@ -141,11 +133,16 @@ void GSPlay::HandleMouseMoveEvents(int x, int y)
 
 void GSPlay::Update(float deltaTime)
 {
-	switch (m_KeyPress)//Handle Key event
-	{
-	default:
-		break;
+	if (m_KeyPress & KEY_LEFT) {
+		x_fish -= 0.3;
+		m_fish->Set2DPosition(x_fish, y_fish);
 	}
+	else if(m_KeyPress & KEY_RIGHT) {
+		x_fish += 0.3;
+		m_fish->Set2DPosition(x_fish, y_fish);
+	}
+	
+	
 	for (auto it : m_listButton)
 	{
 		it->Update(deltaTime);
@@ -164,9 +161,6 @@ void GSPlay::Draw()
 	{
 		it->Draw();
 	}
+	m_fish->Draw();
 
-	for (auto it : m_listAnimation)
-	{
-		it->Draw();
-	}
 }
