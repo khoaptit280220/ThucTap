@@ -27,7 +27,7 @@ void GSCredit::Init()
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_prev.tga");
 	std::shared_ptr<GameButton> btnPrev = std::make_shared<GameButton>(model, shader, texture);
 	btnPrev = std::make_shared<GameButton>(model, shader, texture);
-	btnPrev->Set2DPosition(Globals::screenWidth - 50, 50);
+	btnPrev->Set2DPosition(80, 50);
 	btnPrev->SetSize(50, 50);
 	btnPrev->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_MENU);

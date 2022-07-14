@@ -32,10 +32,15 @@ private:
 	std::shared_ptr<Sprite2D>	m_background;
 	std::shared_ptr<Text>		m_score;
 	std::list<std::shared_ptr<GameButton>>	m_listButton;
-	std::list<std::shared_ptr<SpriteAnimation>>	m_listAnimation;
-	int x_fish = Globals::screenWidth /2;
-	int y_fish = 650;
+	std::list<std::shared_ptr<SpriteAnimation>>	m_coin;
+	std::list<std::shared_ptr<Sprite2D>>	m_obstacle;
+	float x_fish = Globals::screenWidth /2;
+	float y_fish = 650;
 	std::shared_ptr<Sprite2D> m_fish;
-	bool keyPress;
+	std::shared_ptr<Sprite2D> m_obstacle1;
+	std::shared_ptr<Sprite2D> m_obstacle2;
+	std::shared_ptr<SpriteAnimation>	m_coint;
+	bool isPressRight;
+	bool isPressLeft;
 };
 
