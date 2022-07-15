@@ -1,5 +1,4 @@
 #include "GSPlay.h"
-
 #include "Shader.h"
 #include "Texture.h"
 #include "Model.h"
@@ -30,9 +29,13 @@ void GSPlay::Init()
 
 	// background
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
-	m_background = std::make_shared<Sprite2D>(model, shader, texture);
-	m_background->Set2DPosition((float)Globals::screenWidth / 2, (float)Globals::screenHeight / 2);
-	m_background->SetSize(Globals::screenWidth, Globals::screenHeight);
+	m_background1 = std::make_shared<Sprite2D>(model, shader, texture);
+	m_background1->Set2DPosition(x_bg, y_bg1);
+	m_background1->SetSize(Globals::screenWidth, Globals::screenHeight);
+
+	m_background2 = std::make_shared<Sprite2D>(model, shader, texture);
+	m_background2->Set2DPosition(x_bg, y_bg2);
+	m_background2->SetSize(Globals::screenWidth, Globals::screenHeight);
 
 	//fish
 	texture = ResourceManagers::GetInstance()->GetTexture("fishKhoa.tga");
@@ -101,6 +104,7 @@ void GSPlay::Init()
 	m_coin.push_back(coin);
 
 	m_KeyPress = 0;
+	isPress = false;
 }
 
 void GSPlay::Exit()
@@ -125,6 +129,7 @@ void GSPlay::HandleKeyEvents(int key, bool bIsPressed)
 {
 	if (bIsPressed)
 	{
+
 		switch (key)
 		{
 		case KEY_MOVE_LEFT:
@@ -182,34 +187,48 @@ void GSPlay::HandleMouseMoveEvents(int x, int y)
 
 void GSPlay::Update(float deltaTime)
 {
-	
-	/*if (m_KeyPress & KEY_MOVE_LEFT) {
+	//background move
+	if (y_bg1 >= -Globals::screenHeight / 2 + 5 ) {
+		y_bg1 = y_bg1 - 50 * deltaTime;
+		m_background1->Set2DPosition(x_bg, y_bg1);
 		
-		x_fish -= 0.1;
-		m_fish->Set2DPosition(x_fish, y_fish);
 	}
-	else if (m_KeyPress & KEY_MOVE_RIGHT) {	
+	else {
+		y_bg1 = 3 * Globals::screenHeight / 2 - 5;
+		m_background1->Set2DPosition(x_bg, y_bg1);
 		
-		x_fish += 0.1;	
-		m_fish->Set2DPosition(x_fish, y_fish);
-	}*/
-	
-	switch (m_KeyPress)//Handle Key event
+	}
+	 if (y_bg2 >= -Globals::screenHeight / 2 + 5) {
+		y_bg2 = y_bg2 - 50 * deltaTime;
+		m_background2->Set2DPosition(x_bg, y_bg2);
+	}
+	else  {
+		y_bg2 = 3 * Globals::screenHeight / 2 - 5;
+		m_background2->Set2DPosition(x_bg, y_bg2 );
+	}
+
+
+	 //Handle Key event
+	switch (m_KeyPress)
 	{
 	case 1:
-		
-		x_fish -= 0.1;
-		m_fish->Set2DPosition(x_fish, y_fish);
+		if (x_fish > (float)Globals::screenWidth / 6) {
+			x_fish -= 100 * deltaTime;
+			m_fish->Set2DPosition(x_fish, y_fish);
+		}
 		break;
 	case 4:
-		
-		x_fish += 0.1;
-		m_fish->Set2DPosition(x_fish, y_fish);
+		if (x_fish <  5 * (float)Globals::screenWidth / 6) {
+			x_fish += 100 * deltaTime;
+			m_fish->Set2DPosition(x_fish, y_fish);
+		}
 		break;
 	default:
 		break;
 	}
 	
+
+
 	for (auto it : m_listButton)
 	{
 		it->Update(deltaTime);
@@ -222,7 +241,8 @@ void GSPlay::Update(float deltaTime)
 
 void GSPlay::Draw()
 {
-	m_background->Draw();
+	m_background1->Draw();
+	m_background2->Draw();
 	m_score->Draw();
 	for (auto it : m_listButton)
 	{
