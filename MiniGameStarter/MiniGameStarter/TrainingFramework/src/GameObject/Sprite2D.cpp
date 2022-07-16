@@ -120,3 +120,6 @@ void Sprite2D::SetSize(GLint width, GLint height)
 	m_scale = Vector3((GLfloat)m_iWidth, (GLfloat)m_iHeight, 1.0f);
 	CalculateWorldMatrix();
 }
+void Sprite2D::Move(float deltaTime, Vector2 direction, float velocity) {
+	Set2DPosition(m_position.x + deltaTime * velocity * direction.x, m_position.y + deltaTime * velocity * direction.y);
+}

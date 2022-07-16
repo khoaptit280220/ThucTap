@@ -22,5 +22,6 @@ public:
 	void		Set2DPosition(GLint x, GLint y);
 	void		SetRotation(Vector3 rotation);
 	void		SetSize(GLint width, GLint height);
+	void		Move(float deltaTime, Vector2 direction, float velocity);
 };
 

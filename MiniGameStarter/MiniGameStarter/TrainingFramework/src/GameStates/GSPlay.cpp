@@ -24,6 +24,10 @@ GSPlay::~GSPlay()
 
 void GSPlay::Init()
 {
+	listPosXObstacle.push_back(0);
+	listPosXObstacle.push_back(160);
+	listPosXObstacle.push_back(320);
+
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
 	auto texture = ResourceManagers::GetInstance()->GetTexture("backgroundKhoa.tga");
 
@@ -45,19 +49,41 @@ void GSPlay::Init()
 
 	//Obstacle1
 	texture = ResourceManagers::GetInstance()->GetTexture("obstacleKhoa1.tga");
-	m_obstacle1 = std::make_shared<Sprite2D>(model, shader, texture);
-	m_obstacle1->Set2DPosition((float)(Globals::screenWidth - 480) / 2 + 80, 85);
-	m_obstacle1->SetSize(160, 70);
-	m_obstacle.push_back(m_obstacle1);
-	
-	//Obstacle2
-	texture = ResourceManagers::GetInstance()->GetTexture("obstacleKhoa2.tga");
-	m_obstacle2 = std::make_shared<Sprite2D>(model, shader, texture);
-	m_obstacle2->Set2DPosition((float)(Globals::screenWidth - 480) / 2 + 80 + 160 + 160, 85);
-	m_obstacle2->SetSize(160, 70);
-	m_obstacle.push_back(m_obstacle2);
+	m_obstacle11 = std::make_shared<Sprite2D>(model, shader, texture);
+	m_obstacle12 = std::make_shared<Sprite2D>(model, shader, texture);
+	m_obstacle13 = std::make_shared<Sprite2D>(model, shader, texture);
+	m_obstacle14 = std::make_shared<Sprite2D>(model, shader, texture);
+	m_obstacle11->Set2DPosition(x_ob1 , y_ob1);
+	m_obstacle12->Set2DPosition(x_ob1, y_ob2);
+	m_obstacle13->Set2DPosition(x_ob1, y_ob3);
+	m_obstacle14->Set2DPosition(x_ob3, y_ob4);
+	m_obstacle11->SetSize(160, 70);
+	m_obstacle12->SetSize(160, 70);
+	m_obstacle13->SetSize(160, 70);
+	m_obstacle14->SetSize(160, 70);
+	m_obstacle.push_back(m_obstacle11);
+	m_obstacle.push_back(m_obstacle12);
+	m_obstacle.push_back(m_obstacle13);
+	m_obstacle.push_back(m_obstacle14);
 
-	
+	texture = ResourceManagers::GetInstance()->GetTexture("obstacleKhoa2.tga");
+	m_obstacle21 = std::make_shared<Sprite2D>(model, shader, texture);
+	m_obstacle22 = std::make_shared<Sprite2D>(model, shader, texture);
+	m_obstacle23 = std::make_shared<Sprite2D>(model, shader, texture);
+	m_obstacle24 = std::make_shared<Sprite2D>(model, shader, texture);
+	m_obstacle21->Set2DPosition(x_ob3, y_ob1);
+	m_obstacle22->Set2DPosition(x_ob3, y_ob2);
+	m_obstacle23->Set2DPosition(x_ob3, y_ob3);
+	m_obstacle24->Set2DPosition(x_ob1, y_ob4);
+	m_obstacle21->SetSize(160, 70);
+	m_obstacle22->SetSize(160, 70);
+	m_obstacle23->SetSize(160, 70);
+	m_obstacle24->SetSize(160, 70);
+	m_obstacle.push_back(m_obstacle21);
+	m_obstacle.push_back(m_obstacle22);
+	m_obstacle.push_back(m_obstacle23);
+	m_obstacle.push_back(m_obstacle24);
+
 
 	// button prev
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_prev.tga");
@@ -98,8 +124,8 @@ void GSPlay::Init()
 	//Obstacle Coint
 	shader = ResourceManagers::GetInstance()->GetShader("Animation");
 	texture = ResourceManagers::GetInstance()->GetTexture("coin1.tga");
-	std::shared_ptr<SpriteAnimation> coin = std::make_shared<SpriteAnimation>(model, shader, texture, 6, 1, 0, 0.1f);
-	coin->Set2DPosition((float)(Globals::screenWidth - 480) / 2 + 80 + 160 , 85);
+	coin = std::make_shared<SpriteAnimation>(model, shader, texture, 6, 1, 0, 0.1f);
+	coin->Set2DPosition(x_ob2 , y_ob1);
 	coin->SetSize(50, 50);
 	m_coin.push_back(coin);
 
@@ -187,6 +213,7 @@ void GSPlay::HandleMouseMoveEvents(int x, int y)
 
 void GSPlay::Update(float deltaTime)
 {
+
 	//background move
 	if (y_bg1 >= -Globals::screenHeight / 2 + 5 ) {
 		y_bg1 = y_bg1 - 50 * deltaTime;
@@ -207,7 +234,56 @@ void GSPlay::Update(float deltaTime)
 		m_background2->Set2DPosition(x_bg, y_bg2 );
 	}
 
-
+	 //move ob
+	 if (y_ob1 < 640) {
+		 y_ob1 += 30 * deltaTime;
+		 m_obstacle11->Set2DPosition(x_ob1, y_ob1);
+		 m_obstacle21->Set2DPosition(x_ob3, y_ob1);
+		 coin->Set2DPosition(x_ob2, y_ob1);
+	 }
+	 else {
+		 y_ob1 = 85;
+		 m_obstacle11->Set2DPosition(x_ob1, y_ob1);
+		 m_obstacle21->Set2DPosition(x_ob3, y_ob1);
+		 coin->Set2DPosition(x_ob2, y_ob1);
+	 }
+	 if (y_ob2 < 640) {
+		 y_ob2 += 30 * deltaTime;
+		 m_obstacle12->Set2DPosition(x_ob1, y_ob2);
+		 m_obstacle22->Set2DPosition(x_ob3, y_ob2);
+		 coin->Set2DPosition(x_ob2, y_ob1);
+	 }
+	 else {
+		 y_ob2 = 85;
+		 m_obstacle12->Set2DPosition(x_ob1, y_ob2);
+		 m_obstacle22->Set2DPosition(x_ob3, y_ob2);
+		 coin->Set2DPosition(x_ob2, y_ob1);
+	 }
+	 if (y_ob3 < 640) {
+		 y_ob3 += 30 * deltaTime;
+		 m_obstacle13->Set2DPosition(x_ob1, y_ob3);
+		 m_obstacle23->Set2DPosition(x_ob3, y_ob3);
+		 coin->Set2DPosition(x_ob2, y_ob1);
+	 }
+	 else {
+		 y_ob3 = 85;
+		 m_obstacle13->Set2DPosition(x_ob1, y_ob3);
+		 m_obstacle23->Set2DPosition(x_ob3, y_ob3);
+		 coin->Set2DPosition(x_ob2, y_ob1);
+	 }
+	 if (y_ob4 < 640) {
+		 y_ob4 += 30 * deltaTime;
+		 m_obstacle14->Set2DPosition(x_ob1, y_ob4);
+		 m_obstacle24->Set2DPosition(x_ob3, y_ob4);
+		 coin->Set2DPosition(x_ob2, y_ob1);
+	 }
+	 else {
+		 y_ob4 = 85;
+		 m_obstacle14->Set2DPosition(x_ob1, y_ob4);
+		 m_obstacle24->Set2DPosition(x_ob3, y_ob4);
+		 coin->Set2DPosition(x_ob2, y_ob1);
+	 }
+	 
 	 //Handle Key event
 	switch (m_KeyPress)
 	{
