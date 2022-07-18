@@ -389,12 +389,14 @@ void GSPlay::HandleMouseMoveEvents(int x, int y)
 void GSPlay::Update(float deltaTime)
 {
 	
-	sum +=  deltaTime;
-	//random obstacle
-	//if (sum == 200 * deltaTime) {
+
+	sum += deltaTime;
+	if (sum > 3.0f) {
 		Spawn();
-		//sum = 0;
-	//}
+		sum = 0;
+	}
+	
+		
 	//background move
 	if (y_bg1 >= -Globals::screenHeight / 2 + 5 ) {
 		y_bg1 = y_bg1 - 50 * deltaTime;
