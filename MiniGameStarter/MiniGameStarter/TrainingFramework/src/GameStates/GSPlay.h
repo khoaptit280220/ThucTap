@@ -26,7 +26,9 @@ public:
 	void	HandleMouseMoveEvents(int x, int y) override;
 	void	Update(float deltaTime) override;
 	void	Draw() override;
+	void Spawn( );
 	int m_KeyPress;
+	
 
 private:
 	std::shared_ptr<Sprite2D>	m_background1;
@@ -47,7 +49,7 @@ private:
 	float y_ob2 = -65;
 	float y_ob3 = -215;
 	float y_ob4 = -365;
-
+	float sum;
 	std::shared_ptr<Sprite2D> m_fish;
 	std::shared_ptr<Sprite2D> m_obstacle11;
 	std::shared_ptr<Sprite2D> m_obstacle21;
@@ -57,6 +59,7 @@ private:
 	std::shared_ptr<Sprite2D> m_obstacle23;
 	std::shared_ptr<Sprite2D> m_obstacle14;
 	std::shared_ptr<Sprite2D> m_obstacle24;
+	std::shared_ptr<Sprite2D> m_obsTemp;
 	std::shared_ptr<SpriteAnimation> coin;
 	std::vector<int> listPosXObstacle;
 	bool isPress;

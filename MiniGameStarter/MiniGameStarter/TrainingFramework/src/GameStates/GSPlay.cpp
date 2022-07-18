@@ -48,41 +48,41 @@ void GSPlay::Init()
 	m_fish->SetSize(100, 150);
 
 	//Obstacle1
-	texture = ResourceManagers::GetInstance()->GetTexture("obstacleKhoa1.tga");
+	texture = ResourceManagers::GetInstance()->GetTexture("obstacleKhoa.tga");
 	m_obstacle11 = std::make_shared<Sprite2D>(model, shader, texture);
 	m_obstacle12 = std::make_shared<Sprite2D>(model, shader, texture);
 	m_obstacle13 = std::make_shared<Sprite2D>(model, shader, texture);
 	m_obstacle14 = std::make_shared<Sprite2D>(model, shader, texture);
-	m_obstacle11->Set2DPosition(x_ob1 , y_ob1);
+	/*m_obstacle11->Set2DPosition(x_ob1 , y_ob1);
 	m_obstacle12->Set2DPosition(x_ob1, y_ob2);
 	m_obstacle13->Set2DPosition(x_ob1, y_ob3);
-	m_obstacle14->Set2DPosition(x_ob3, y_ob4);
+	m_obstacle14->Set2DPosition(x_ob3, y_ob4);*/
 	m_obstacle11->SetSize(160, 70);
 	m_obstacle12->SetSize(160, 70);
 	m_obstacle13->SetSize(160, 70);
 	m_obstacle14->SetSize(160, 70);
 	m_obstacle.push_back(m_obstacle11);
-	m_obstacle.push_back(m_obstacle12);
+	/*m_obstacle.push_back(m_obstacle12);
 	m_obstacle.push_back(m_obstacle13);
-	m_obstacle.push_back(m_obstacle14);
+	m_obstacle.push_back(m_obstacle14);*/
 
-	texture = ResourceManagers::GetInstance()->GetTexture("obstacleKhoa2.tga");
+	texture = ResourceManagers::GetInstance()->GetTexture("obstacle2Khoa.tga");
 	m_obstacle21 = std::make_shared<Sprite2D>(model, shader, texture);
 	m_obstacle22 = std::make_shared<Sprite2D>(model, shader, texture);
 	m_obstacle23 = std::make_shared<Sprite2D>(model, shader, texture);
 	m_obstacle24 = std::make_shared<Sprite2D>(model, shader, texture);
-	m_obstacle21->Set2DPosition(x_ob3, y_ob1);
+	/*m_obstacle21->Set2DPosition(x_ob3, y_ob1);
 	m_obstacle22->Set2DPosition(x_ob3, y_ob2);
 	m_obstacle23->Set2DPosition(x_ob3, y_ob3);
-	m_obstacle24->Set2DPosition(x_ob1, y_ob4);
+	m_obstacle24->Set2DPosition(x_ob1, y_ob4);*/
 	m_obstacle21->SetSize(160, 70);
 	m_obstacle22->SetSize(160, 70);
 	m_obstacle23->SetSize(160, 70);
 	m_obstacle24->SetSize(160, 70);
 	m_obstacle.push_back(m_obstacle21);
-	m_obstacle.push_back(m_obstacle22);
+	/*m_obstacle.push_back(m_obstacle22);
 	m_obstacle.push_back(m_obstacle23);
-	m_obstacle.push_back(m_obstacle24);
+	m_obstacle.push_back(m_obstacle24);*/
 
 
 	// button prev
@@ -130,13 +130,188 @@ void GSPlay::Init()
 	m_coin.push_back(coin);
 
 	m_KeyPress = 0;
-	isPress = false;
+	sum = 0;
 }
 
 void GSPlay::Exit()
 {
 }
 
+void GSPlay::Spawn()
+{
+	int index1 = 0 + rand() % (listPosXObstacle.size() + 1);
+	if (index1 == 0) {
+		int temp = 0 + rand() % (m_obstacle.size() + 1);
+		if (temp == 0) {
+			m_obsTemp = m_obstacle.front();
+			m_obstacle11 = m_obsTemp;
+			m_obstacle11->Set2DPosition(x_ob1, y_ob1);
+		}
+		if (temp == 1) {
+			m_obsTemp = m_obstacle.back();
+			m_obstacle21 = m_obsTemp;
+			m_obstacle21->Set2DPosition(x_ob1, y_ob1);
+		}
+	}
+	if (index1 == 1) {
+		int temp = 0 + rand() % (m_obstacle.size() + 1);
+		if (temp == 0) {
+			m_obsTemp = m_obstacle.front();
+			m_obstacle11 = m_obsTemp;
+			m_obstacle11->Set2DPosition(x_ob2, y_ob1);
+		}
+		if (temp == 1) {
+			m_obsTemp = m_obstacle.back();
+			m_obstacle21 = m_obsTemp;
+			m_obstacle21->Set2DPosition(x_ob2, y_ob1);
+		}
+	}
+	if (index1 == 2) {
+		int temp = 0 + rand() % (m_obstacle.size() + 1);
+		if (temp == 0) {
+			m_obsTemp = m_obstacle.front();
+			m_obstacle11 = m_obsTemp;
+			m_obstacle11->Set2DPosition(x_ob3, y_ob1);
+		}
+		if (temp == 1) {
+			m_obsTemp = m_obstacle.back();
+			m_obstacle21 = m_obsTemp;
+			m_obstacle21->Set2DPosition(x_ob3, y_ob1);
+		}
+	}
+	
+	if (y_ob1 > 200) {
+		int index = 0 + rand() % (listPosXObstacle.size() + 1);
+		if (index == 0) {
+			int temp = 0 + rand() % (m_obstacle.size() + 1);
+			if (temp == 0) {
+				m_obsTemp = m_obstacle.front();
+				m_obstacle12 = m_obsTemp;
+				m_obstacle12->Set2DPosition(x_ob1, y_ob2);
+			}
+			if (temp == 1) {
+				m_obsTemp = m_obstacle.back();
+				m_obstacle22 = m_obsTemp;
+				m_obstacle22->Set2DPosition(x_ob1, y_ob2);
+			}
+		}
+		if (index == 1) {
+			int temp = 0 + rand() % (m_obstacle.size() + 1);
+			if (temp == 0) {
+				m_obsTemp = m_obstacle.front();
+				m_obstacle12 = m_obsTemp;
+				m_obstacle12->Set2DPosition(x_ob2, y_ob2);
+			}
+			if (temp == 1) {
+				m_obsTemp = m_obstacle.back();
+				m_obstacle22 = m_obsTemp;
+				m_obstacle22->Set2DPosition(x_ob2, y_ob2);
+			}
+		}
+		if (index == 2) {
+			int temp = 0 + rand() % (m_obstacle.size() + 1);
+			if (temp == 0) {
+				m_obsTemp = m_obstacle.front();
+				m_obstacle12 = m_obsTemp;
+				m_obstacle12->Set2DPosition(x_ob3, y_ob2);
+			}
+			if (temp == 1) {
+				m_obsTemp = m_obstacle.back();
+				m_obstacle22 = m_obsTemp;
+				m_obstacle22->Set2DPosition(x_ob3, y_ob2);
+			}
+		}
+	}
+
+	if (y_ob2 > 200 ) {
+		int index = 0 + rand() % (listPosXObstacle.size() + 1);
+		if (index == 0) {
+			int temp = 0 + rand() % (m_obstacle.size() + 1);
+			if (temp == 0) {
+				m_obsTemp = m_obstacle.front();
+				m_obstacle13 = m_obsTemp;
+				m_obstacle13->Set2DPosition(x_ob1, y_ob3);
+			}
+			if (temp == 1) {
+				m_obsTemp = m_obstacle.back();
+				m_obstacle23 = m_obsTemp;
+				m_obstacle23->Set2DPosition(x_ob1, y_ob3);
+			}
+		}
+		if (index == 1) {
+			int temp = 0 + rand() % (m_obstacle.size() + 1);
+			if (temp == 0) {
+				m_obsTemp = m_obstacle.front();
+				m_obstacle13 = m_obsTemp;
+				m_obstacle13->Set2DPosition(x_ob2, y_ob3);
+			}
+			if (temp == 1) {
+				m_obsTemp = m_obstacle.back();
+				m_obstacle23 = m_obsTemp;
+				m_obstacle23->Set2DPosition(x_ob2, y_ob3);
+			}
+		}
+		if (index == 2) {
+			int temp = 0 + rand() % (m_obstacle.size() + 1);
+			if (temp == 0) {
+				m_obsTemp = m_obstacle.front();
+				m_obstacle13 = m_obsTemp;
+				m_obstacle13->Set2DPosition(x_ob3, y_ob3);
+			}
+			if (temp == 1) {
+				m_obsTemp = m_obstacle.back();
+				m_obstacle23 = m_obsTemp;
+				m_obstacle23->Set2DPosition(x_ob3, y_ob3);
+			}
+		}
+	}
+
+	if (y_ob3 > 200 ) {
+		int index = 0 + rand() % (listPosXObstacle.size() + 1);
+		if (index == 0) {
+			int temp = 0 + rand() % (m_obstacle.size() + 1);
+			if (temp == 0) {
+				m_obsTemp = m_obstacle.front();
+				m_obstacle14 = m_obsTemp;
+				m_obstacle14->Set2DPosition(x_ob1, y_ob4);
+			}
+			if (temp == 1) {
+				m_obsTemp = m_obstacle.back();
+				m_obstacle24 = m_obsTemp;
+				m_obstacle24->Set2DPosition(x_ob1, y_ob4);
+			}
+		}
+		if (index == 1) {
+			int temp = 0 + rand() % (m_obstacle.size() + 1);
+			if (temp == 0) {
+				m_obsTemp = m_obstacle.front();
+				m_obstacle14 = m_obsTemp;
+				m_obstacle14->Set2DPosition(x_ob2, y_ob4);
+			}
+			if (temp == 1) {
+				m_obsTemp = m_obstacle.back();
+				m_obstacle24 = m_obsTemp;
+				m_obstacle24->Set2DPosition(x_ob2, y_ob4);
+			}
+		}
+		if (index == 2) {
+			int temp = 0 + rand() % (m_obstacle.size() + 1);
+			if (temp == 0) {
+				m_obsTemp = m_obstacle.front();
+				m_obstacle14 = m_obsTemp;
+				m_obstacle14->Set2DPosition(x_ob3, y_ob4);
+			}
+			if (temp == 1) {
+				m_obsTemp = m_obstacle.back();
+				m_obstacle24 = m_obsTemp;
+				m_obstacle24->Set2DPosition(x_ob3, y_ob4);
+			}
+		}
+	}
+	
+
+
+}
 
 void GSPlay::Pause()
 {
@@ -213,7 +388,13 @@ void GSPlay::HandleMouseMoveEvents(int x, int y)
 
 void GSPlay::Update(float deltaTime)
 {
-
+	
+	sum +=  deltaTime;
+	//random obstacle
+	//if (sum == 200 * deltaTime) {
+		Spawn();
+		//sum = 0;
+	//}
 	//background move
 	if (y_bg1 >= -Globals::screenHeight / 2 + 5 ) {
 		y_bg1 = y_bg1 - 50 * deltaTime;
@@ -234,54 +415,57 @@ void GSPlay::Update(float deltaTime)
 		m_background2->Set2DPosition(x_bg, y_bg2 );
 	}
 
+	 
+	 
+
 	 //move ob
-	 if (y_ob1 < 640) {
+	 if (y_ob1 < Globals::screenHeight + 35) {
 		 y_ob1 += 30 * deltaTime;
-		 m_obstacle11->Set2DPosition(x_ob1, y_ob1);
-		 m_obstacle21->Set2DPosition(x_ob3, y_ob1);
+		 /*m_obstacle11->Set2DPosition(x_ob1, y_ob1);
+		 m_obstacle21->Set2DPosition(x_ob3, y_ob1);*/
 		 coin->Set2DPosition(x_ob2, y_ob1);
 	 }
 	 else {
-		 y_ob1 = 85;
-		 m_obstacle11->Set2DPosition(x_ob1, y_ob1);
-		 m_obstacle21->Set2DPosition(x_ob3, y_ob1);
+		 y_ob1 = -35;
+		/* m_obstacle11->Set2DPosition(x_ob1, y_ob1);
+		 m_obstacle21->Set2DPosition(x_ob3, y_ob1);*/
 		 coin->Set2DPosition(x_ob2, y_ob1);
 	 }
-	 if (y_ob2 < 640) {
+	 if (y_ob2 < Globals::screenHeight + 35) {
 		 y_ob2 += 30 * deltaTime;
-		 m_obstacle12->Set2DPosition(x_ob1, y_ob2);
+		 /*m_obstacle12->Set2DPosition(x_ob1, y_ob2);
 		 m_obstacle22->Set2DPosition(x_ob3, y_ob2);
-		 coin->Set2DPosition(x_ob2, y_ob1);
+		 coin->Set2DPosition(x_ob2, y_ob1);*/
 	 }
 	 else {
-		 y_ob2 = 85;
-		 m_obstacle12->Set2DPosition(x_ob1, y_ob2);
+		 y_ob2 = -35;
+		 /*m_obstacle12->Set2DPosition(x_ob1, y_ob2);
 		 m_obstacle22->Set2DPosition(x_ob3, y_ob2);
-		 coin->Set2DPosition(x_ob2, y_ob1);
+		 coin->Set2DPosition(x_ob2, y_ob1);*/
 	 }
-	 if (y_ob3 < 640) {
+	 if (y_ob3 < Globals::screenHeight + 35) {
 		 y_ob3 += 30 * deltaTime;
-		 m_obstacle13->Set2DPosition(x_ob1, y_ob3);
+		 /*m_obstacle13->Set2DPosition(x_ob1, y_ob3);
 		 m_obstacle23->Set2DPosition(x_ob3, y_ob3);
-		 coin->Set2DPosition(x_ob2, y_ob1);
+		 coin->Set2DPosition(x_ob2, y_ob1);*/
 	 }
 	 else {
-		 y_ob3 = 85;
-		 m_obstacle13->Set2DPosition(x_ob1, y_ob3);
+		 y_ob3 = -35;
+		/* m_obstacle13->Set2DPosition(x_ob1, y_ob3);
 		 m_obstacle23->Set2DPosition(x_ob3, y_ob3);
-		 coin->Set2DPosition(x_ob2, y_ob1);
+		 coin->Set2DPosition(x_ob2, y_ob1);*/
 	 }
-	 if (y_ob4 < 640) {
+	 if (y_ob4 < Globals::screenHeight + 35) {
 		 y_ob4 += 30 * deltaTime;
-		 m_obstacle14->Set2DPosition(x_ob1, y_ob4);
+		 /*m_obstacle14->Set2DPosition(x_ob1, y_ob4);
 		 m_obstacle24->Set2DPosition(x_ob3, y_ob4);
-		 coin->Set2DPosition(x_ob2, y_ob1);
+		 coin->Set2DPosition(x_ob2, y_ob1);*/
 	 }
 	 else {
-		 y_ob4 = 85;
-		 m_obstacle14->Set2DPosition(x_ob1, y_ob4);
+		 y_ob4 = -35;
+		/* m_obstacle14->Set2DPosition(x_ob1, y_ob4);
 		 m_obstacle24->Set2DPosition(x_ob3, y_ob4);
-		 coin->Set2DPosition(x_ob2, y_ob1);
+		 coin->Set2DPosition(x_ob2, y_ob1);*/
 	 }
 	 
 	 //Handle Key event
@@ -320,15 +504,23 @@ void GSPlay::Draw()
 	m_background1->Draw();
 	m_background2->Draw();
 	m_score->Draw();
+	m_obstacle11->Draw();
+	m_obstacle12->Draw();
+	m_obstacle13->Draw();
+	m_obstacle14->Draw();
+	m_obstacle21->Draw();
+	m_obstacle22->Draw();
+	m_obstacle23->Draw();
+	m_obstacle24->Draw();
 	for (auto it : m_listButton)
 	{
 		it->Draw();
 	}
 	m_fish->Draw();
-	for (auto it : m_obstacle)
+	/*for (auto it : m_obstacle)
 	{
 		it->Draw();
-	}
+	}*/
 	for (auto it : m_coin)
 	{
 		it->Draw();
