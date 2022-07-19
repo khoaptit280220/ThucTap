@@ -139,178 +139,7 @@ void GSPlay::Exit()
 
 void GSPlay::Spawn()
 {
-	int index1 = 0 + rand() % (listPosXObstacle.size() + 1);
-	if (index1 == 0) {
-		int temp = 0 + rand() % (m_obstacle.size() + 1);
-		if (temp == 0) {
-			m_obsTemp = m_obstacle.front();
-			m_obstacle11 = m_obsTemp;
-			m_obstacle11->Set2DPosition(x_ob1, y_ob1);
-		}
-		if (temp == 1) {
-			m_obsTemp = m_obstacle.back();
-			m_obstacle21 = m_obsTemp;
-			m_obstacle21->Set2DPosition(x_ob1, y_ob1);
-		}
-	}
-	if (index1 == 1) {
-		int temp = 0 + rand() % (m_obstacle.size() + 1);
-		if (temp == 0) {
-			m_obsTemp = m_obstacle.front();
-			m_obstacle11 = m_obsTemp;
-			m_obstacle11->Set2DPosition(x_ob2, y_ob1);
-		}
-		if (temp == 1) {
-			m_obsTemp = m_obstacle.back();
-			m_obstacle21 = m_obsTemp;
-			m_obstacle21->Set2DPosition(x_ob2, y_ob1);
-		}
-	}
-	if (index1 == 2) {
-		int temp = 0 + rand() % (m_obstacle.size() + 1);
-		if (temp == 0) {
-			m_obsTemp = m_obstacle.front();
-			m_obstacle11 = m_obsTemp;
-			m_obstacle11->Set2DPosition(x_ob3, y_ob1);
-		}
-		if (temp == 1) {
-			m_obsTemp = m_obstacle.back();
-			m_obstacle21 = m_obsTemp;
-			m_obstacle21->Set2DPosition(x_ob3, y_ob1);
-		}
-	}
 	
-	if (y_ob1 > 200) {
-		int index = 0 + rand() % (listPosXObstacle.size() + 1);
-		if (index == 0) {
-			int temp = 0 + rand() % (m_obstacle.size() + 1);
-			if (temp == 0) {
-				m_obsTemp = m_obstacle.front();
-				m_obstacle12 = m_obsTemp;
-				m_obstacle12->Set2DPosition(x_ob1, y_ob2);
-			}
-			if (temp == 1) {
-				m_obsTemp = m_obstacle.back();
-				m_obstacle22 = m_obsTemp;
-				m_obstacle22->Set2DPosition(x_ob1, y_ob2);
-			}
-		}
-		if (index == 1) {
-			int temp = 0 + rand() % (m_obstacle.size() + 1);
-			if (temp == 0) {
-				m_obsTemp = m_obstacle.front();
-				m_obstacle12 = m_obsTemp;
-				m_obstacle12->Set2DPosition(x_ob2, y_ob2);
-			}
-			if (temp == 1) {
-				m_obsTemp = m_obstacle.back();
-				m_obstacle22 = m_obsTemp;
-				m_obstacle22->Set2DPosition(x_ob2, y_ob2);
-			}
-		}
-		if (index == 2) {
-			int temp = 0 + rand() % (m_obstacle.size() + 1);
-			if (temp == 0) {
-				m_obsTemp = m_obstacle.front();
-				m_obstacle12 = m_obsTemp;
-				m_obstacle12->Set2DPosition(x_ob3, y_ob2);
-			}
-			if (temp == 1) {
-				m_obsTemp = m_obstacle.back();
-				m_obstacle22 = m_obsTemp;
-				m_obstacle22->Set2DPosition(x_ob3, y_ob2);
-			}
-		}
-	}
-
-	if (y_ob2 > 200 ) {
-		int index = 0 + rand() % (listPosXObstacle.size() + 1);
-		if (index == 0) {
-			int temp = 0 + rand() % (m_obstacle.size() + 1);
-			if (temp == 0) {
-				m_obsTemp = m_obstacle.front();
-				m_obstacle13 = m_obsTemp;
-				m_obstacle13->Set2DPosition(x_ob1, y_ob3);
-			}
-			if (temp == 1) {
-				m_obsTemp = m_obstacle.back();
-				m_obstacle23 = m_obsTemp;
-				m_obstacle23->Set2DPosition(x_ob1, y_ob3);
-			}
-		}
-		if (index == 1) {
-			int temp = 0 + rand() % (m_obstacle.size() + 1);
-			if (temp == 0) {
-				m_obsTemp = m_obstacle.front();
-				m_obstacle13 = m_obsTemp;
-				m_obstacle13->Set2DPosition(x_ob2, y_ob3);
-			}
-			if (temp == 1) {
-				m_obsTemp = m_obstacle.back();
-				m_obstacle23 = m_obsTemp;
-				m_obstacle23->Set2DPosition(x_ob2, y_ob3);
-			}
-		}
-		if (index == 2) {
-			int temp = 0 + rand() % (m_obstacle.size() + 1);
-			if (temp == 0) {
-				m_obsTemp = m_obstacle.front();
-				m_obstacle13 = m_obsTemp;
-				m_obstacle13->Set2DPosition(x_ob3, y_ob3);
-			}
-			if (temp == 1) {
-				m_obsTemp = m_obstacle.back();
-				m_obstacle23 = m_obsTemp;
-				m_obstacle23->Set2DPosition(x_ob3, y_ob3);
-			}
-		}
-	}
-
-	if (y_ob3 > 200 ) {
-		int index = 0 + rand() % (listPosXObstacle.size() + 1);
-		if (index == 0) {
-			int temp = 0 + rand() % (m_obstacle.size() + 1);
-			if (temp == 0) {
-				m_obsTemp = m_obstacle.front();
-				m_obstacle14 = m_obsTemp;
-				m_obstacle14->Set2DPosition(x_ob1, y_ob4);
-			}
-			if (temp == 1) {
-				m_obsTemp = m_obstacle.back();
-				m_obstacle24 = m_obsTemp;
-				m_obstacle24->Set2DPosition(x_ob1, y_ob4);
-			}
-		}
-		if (index == 1) {
-			int temp = 0 + rand() % (m_obstacle.size() + 1);
-			if (temp == 0) {
-				m_obsTemp = m_obstacle.front();
-				m_obstacle14 = m_obsTemp;
-				m_obstacle14->Set2DPosition(x_ob2, y_ob4);
-			}
-			if (temp == 1) {
-				m_obsTemp = m_obstacle.back();
-				m_obstacle24 = m_obsTemp;
-				m_obstacle24->Set2DPosition(x_ob2, y_ob4);
-			}
-		}
-		if (index == 2) {
-			int temp = 0 + rand() % (m_obstacle.size() + 1);
-			if (temp == 0) {
-				m_obsTemp = m_obstacle.front();
-				m_obstacle14 = m_obsTemp;
-				m_obstacle14->Set2DPosition(x_ob3, y_ob4);
-			}
-			if (temp == 1) {
-				m_obsTemp = m_obstacle.back();
-				m_obstacle24 = m_obsTemp;
-				m_obstacle24->Set2DPosition(x_ob3, y_ob4);
-			}
-		}
-	}
-	
-
-
 }
 
 void GSPlay::Pause()
@@ -387,16 +216,8 @@ void GSPlay::HandleMouseMoveEvents(int x, int y)
 }
 
 void GSPlay::Update(float deltaTime)
-{
-	
+{	
 
-	sum += deltaTime;
-	if (sum > 3.0f) {
-		Spawn();
-		sum = 0;
-	}
-	
-		
 	//background move
 	if (y_bg1 >= -Globals::screenHeight / 2 + 5 ) {
 		y_bg1 = y_bg1 - 50 * deltaTime;
@@ -418,57 +239,88 @@ void GSPlay::Update(float deltaTime)
 	}
 
 	 
-	 
-
-	 //move ob
 	 if (y_ob1 < Globals::screenHeight + 35) {
-		 y_ob1 += 30 * deltaTime;
-		 /*m_obstacle11->Set2DPosition(x_ob1, y_ob1);
-		 m_obstacle21->Set2DPosition(x_ob3, y_ob1);*/
-		 coin->Set2DPosition(x_ob2, y_ob1);
-	 }
+	    y_ob1 += 120 * deltaTime;
+	    /*m_obstacle11->Set2DPosition(x_ob1, y_ob1);
+	    m_obstacle21->Set2DPosition(x_ob3, y_ob1);*/
+	    //coin->Set2DPosition(x_ob2, y_ob1);
+		m_obstacle11->Set2DPosition(x_ob2, y_ob1);
+		}
 	 else {
 		 y_ob1 = -35;
-		/* m_obstacle11->Set2DPosition(x_ob1, y_ob1);
-		 m_obstacle21->Set2DPosition(x_ob3, y_ob1);*/
-		 coin->Set2DPosition(x_ob2, y_ob1);
+		 isRandomX1 = true;
+		 if (isRandomX1) {
+			 isRandomX1 = false;
+			 int index = 0 + rand() % listPosXObstacle.size();
+			 x_ob2 = listPosXObstacle[index] + x_ob1;
+		 }
+		 m_obstacle11->Set2DPosition(x_ob2, y_ob1);
 	 }
 	 if (y_ob2 < Globals::screenHeight + 35) {
-		 y_ob2 += 30 * deltaTime;
-		 /*m_obstacle12->Set2DPosition(x_ob1, y_ob2);
-		 m_obstacle22->Set2DPosition(x_ob3, y_ob2);
-		 coin->Set2DPosition(x_ob2, y_ob1);*/
+		 y_ob2 += 120 * deltaTime;
+		 
+		 m_obstacle21->Set2DPosition(x_ob3, y_ob2);
 	 }
 	 else {
 		 y_ob2 = -35;
-		 /*m_obstacle12->Set2DPosition(x_ob1, y_ob2);
-		 m_obstacle22->Set2DPosition(x_ob3, y_ob2);
-		 coin->Set2DPosition(x_ob2, y_ob1);*/
+		 isRandomX2 = true;
+		 if (isRandomX2) {
+			 isRandomX2 = false;
+			 int index = 0 + rand() % listPosXObstacle.size();
+			 x_ob3 = listPosXObstacle[index] + x_ob1;
+		 }
+		 m_obstacle21->Set2DPosition(x_ob3, y_ob2);
 	 }
-	 if (y_ob3 < Globals::screenHeight + 35) {
-		 y_ob3 += 30 * deltaTime;
-		 /*m_obstacle13->Set2DPosition(x_ob1, y_ob3);
-		 m_obstacle23->Set2DPosition(x_ob3, y_ob3);
-		 coin->Set2DPosition(x_ob2, y_ob1);*/
-	 }
-	 else {
-		 y_ob3 = -35;
-		/* m_obstacle13->Set2DPosition(x_ob1, y_ob3);
-		 m_obstacle23->Set2DPosition(x_ob3, y_ob3);
-		 coin->Set2DPosition(x_ob2, y_ob1);*/
-	 }
-	 if (y_ob4 < Globals::screenHeight + 35) {
-		 y_ob4 += 30 * deltaTime;
-		 /*m_obstacle14->Set2DPosition(x_ob1, y_ob4);
-		 m_obstacle24->Set2DPosition(x_ob3, y_ob4);
-		 coin->Set2DPosition(x_ob2, y_ob1);*/
-	 }
-	 else {
-		 y_ob4 = -35;
-		/* m_obstacle14->Set2DPosition(x_ob1, y_ob4);
-		 m_obstacle24->Set2DPosition(x_ob3, y_ob4);
-		 coin->Set2DPosition(x_ob2, y_ob1);*/
-	 }
+	 std::cout <<x_ob2<<"    "<< y_ob1 << std::endl;
+	 //move ob
+	 //if (y_ob1 < Globals::screenHeight + 35) {
+		// y_ob1 += 30 * deltaTime;
+		// /*m_obstacle11->Set2DPosition(x_ob1, y_ob1);
+		// m_obstacle21->Set2DPosition(x_ob3, y_ob1);*/
+		// coin->Set2DPosition(x_ob2, y_ob1);
+	 //}
+	 //else {
+		// y_ob1 = -35;
+		///* m_obstacle11->Set2DPosition(x_ob1, y_ob1);
+		// m_obstacle21->Set2DPosition(x_ob3, y_ob1);*/
+		// coin->Set2DPosition(x_ob2, y_ob1);
+	 //}
+	 //if (y_ob2 < Globals::screenHeight + 35) {
+		// y_ob2 += 30 * deltaTime;
+		// /*m_obstacle12->Set2DPosition(x_ob1, y_ob2);
+		// m_obstacle22->Set2DPosition(x_ob3, y_ob2);
+		// coin->Set2DPosition(x_ob2, y_ob1);*/
+	 //}
+	 //else {
+		// y_ob2 = -35;
+		// /*m_obstacle12->Set2DPosition(x_ob1, y_ob2);
+		// m_obstacle22->Set2DPosition(x_ob3, y_ob2);
+		// coin->Set2DPosition(x_ob2, y_ob1);*/
+	 //}
+	 //if (y_ob3 < Globals::screenHeight + 35) {
+		// y_ob3 += 30 * deltaTime;
+		// /*m_obstacle13->Set2DPosition(x_ob1, y_ob3);
+		// m_obstacle23->Set2DPosition(x_ob3, y_ob3);
+		// coin->Set2DPosition(x_ob2, y_ob1);*/
+	 //}
+	 //else {
+		// y_ob3 = -35;
+		///* m_obstacle13->Set2DPosition(x_ob1, y_ob3);
+		// m_obstacle23->Set2DPosition(x_ob3, y_ob3);
+		// coin->Set2DPosition(x_ob2, y_ob1);*/
+	 //}
+	 //if (y_ob4 < Globals::screenHeight + 35) {
+		// y_ob4 += 30 * deltaTime;
+		// /*m_obstacle14->Set2DPosition(x_ob1, y_ob4);
+		// m_obstacle24->Set2DPosition(x_ob3, y_ob4);
+		// coin->Set2DPosition(x_ob2, y_ob1);*/
+	 //}
+	 //else {
+		// y_ob4 = -35;
+		///* m_obstacle14->Set2DPosition(x_ob1, y_ob4);
+		// m_obstacle24->Set2DPosition(x_ob3, y_ob4);
+		// coin->Set2DPosition(x_ob2, y_ob1);*/
+	 //}
 	 
 	 //Handle Key event
 	switch (m_KeyPress)

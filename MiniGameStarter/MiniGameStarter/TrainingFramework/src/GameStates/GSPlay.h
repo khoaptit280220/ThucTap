@@ -64,5 +64,8 @@ private:
 	std::vector<int> listPosXObstacle;
 	bool isPress;
 	bool isPressLeft;
+	bool isRandomX1 = false;
+	bool isRandomX2 = false;
+	bool isRandomX3 = false;
 };
 
