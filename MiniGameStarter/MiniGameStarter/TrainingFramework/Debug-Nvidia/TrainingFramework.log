@@ -1,83 +1,26 @@
 ﻿  GSPlay.cpp
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(40,38): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(42,36): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(43,42): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(44,46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(45,49): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(37,37): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(37,31): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(41,37): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(41,31): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(47,32): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(47,24): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(128,30): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(128,22): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(148,39): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(148,32): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(153,39): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(153,32): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(161,39): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(161,32): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(166,39): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(166,32): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(174,39): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(174,32): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(179,39): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(179,32): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(190,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(190,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(195,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(195,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(203,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(203,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(208,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(208,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(216,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(216,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(221,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(221,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(233,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(233,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(238,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(238,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(246,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(246,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(251,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(251,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(259,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(259,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(264,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(264,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(276,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(276,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(281,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(281,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(289,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(289,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(294,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(294,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(302,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(302,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(307,40): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(307,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(403,38): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(403,32): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(407,41): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(408,38): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(408,32): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(413,38): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(413,32): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(416,41): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(417,38): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(417,32): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(428,31): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(428,24): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(434,31): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(434,24): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(479,34): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(479,26): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(485,34): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(485,26): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(43,38): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(45,36): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(46,38): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(47,42): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(48,48): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(49,49): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(224,52): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(224,45): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(225,41): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(225,34): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(245,55): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(245,48): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(246,43): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(246,36): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(266,55): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(266,48): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(267,43): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(267,36): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(289,55): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(289,48): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(290,43): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(290,36): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(158,77): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
           with
           [
@@ -98,6 +41,13 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
           [
               _Ty=Text
           ]
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(121): message : see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
-soloud_static_d.lib(dr_impl.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(dr_impl.obj)' or at 'C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
-  TrainingFramework.vcxproj -> C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\BIN-Nvidia\TrainingFramework.exe
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(100): message : see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+  GameStateBase.cpp
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(43,38): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(45,36): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(46,38): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(47,42): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(48,48): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(49,49): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(130): error C4716: 'GSPlay::Check_collision': must return a value

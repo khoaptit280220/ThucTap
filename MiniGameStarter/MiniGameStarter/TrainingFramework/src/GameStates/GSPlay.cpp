@@ -51,39 +51,18 @@ void GSPlay::Init()
 	texture = ResourceManagers::GetInstance()->GetTexture("obstacleKhoa.tga");
 	m_obstacle11 = std::make_shared<Sprite2D>(model, shader, texture);
 	m_obstacle12 = std::make_shared<Sprite2D>(model, shader, texture);
-	m_obstacle13 = std::make_shared<Sprite2D>(model, shader, texture);
-	m_obstacle14 = std::make_shared<Sprite2D>(model, shader, texture);
-	/*m_obstacle11->Set2DPosition(x_ob1 , y_ob1);
-	m_obstacle12->Set2DPosition(x_ob1, y_ob2);
-	m_obstacle13->Set2DPosition(x_ob1, y_ob3);
-	m_obstacle14->Set2DPosition(x_ob3, y_ob4);*/
 	m_obstacle11->SetSize(160, 70);
 	m_obstacle12->SetSize(160, 70);
-	m_obstacle13->SetSize(160, 70);
-	m_obstacle14->SetSize(160, 70);
 	m_obstacle.push_back(m_obstacle11);
-	/*m_obstacle.push_back(m_obstacle12);
-	m_obstacle.push_back(m_obstacle13);
-	m_obstacle.push_back(m_obstacle14);*/
+	m_obstacle.push_back(m_obstacle12);
 
 	texture = ResourceManagers::GetInstance()->GetTexture("obstacle2Khoa.tga");
 	m_obstacle21 = std::make_shared<Sprite2D>(model, shader, texture);
 	m_obstacle22 = std::make_shared<Sprite2D>(model, shader, texture);
-	m_obstacle23 = std::make_shared<Sprite2D>(model, shader, texture);
-	m_obstacle24 = std::make_shared<Sprite2D>(model, shader, texture);
-	/*m_obstacle21->Set2DPosition(x_ob3, y_ob1);
-	m_obstacle22->Set2DPosition(x_ob3, y_ob2);
-	m_obstacle23->Set2DPosition(x_ob3, y_ob3);
-	m_obstacle24->Set2DPosition(x_ob1, y_ob4);*/
 	m_obstacle21->SetSize(160, 70);
 	m_obstacle22->SetSize(160, 70);
-	m_obstacle23->SetSize(160, 70);
-	m_obstacle24->SetSize(160, 70);
 	m_obstacle.push_back(m_obstacle21);
-	/*m_obstacle.push_back(m_obstacle22);
-	m_obstacle.push_back(m_obstacle23);
-	m_obstacle.push_back(m_obstacle24);*/
-
+	m_obstacle.push_back(m_obstacle22);
 
 	// button prev
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_prev.tga");
@@ -125,9 +104,17 @@ void GSPlay::Init()
 	shader = ResourceManagers::GetInstance()->GetShader("Animation");
 	texture = ResourceManagers::GetInstance()->GetTexture("coin1.tga");
 	coin = std::make_shared<SpriteAnimation>(model, shader, texture, 6, 1, 0, 0.1f);
-	coin->Set2DPosition(x_ob2 , y_ob1);
 	coin->SetSize(50, 50);
 	m_coin.push_back(coin);
+	coin1 = std::make_shared<SpriteAnimation>(model, shader, texture, 6, 1, 0, 0.1f);
+	coin1->SetSize(50, 50);
+	m_coin1.push_back(coin1);
+	coin2 = std::make_shared<SpriteAnimation>(model, shader, texture, 6, 1, 0, 0.1f);
+	coin2->SetSize(50, 50);
+	m_coin2.push_back(coin2);
+	coin3 = std::make_shared<SpriteAnimation>(model, shader, texture, 6, 1, 0, 0.1f);
+	coin3->SetSize(50, 50);
+	m_coin3.push_back(coin3);
 
 	m_KeyPress = 0;
 	sum = 0;
@@ -137,7 +124,7 @@ void GSPlay::Exit()
 {
 }
 
-void GSPlay::Spawn()
+bool GSPlay::Check_collision()
 {
 	
 }
@@ -217,49 +204,46 @@ void GSPlay::HandleMouseMoveEvents(int x, int y)
 
 void GSPlay::Update(float deltaTime)
 {	
-
 	//background move
-	if (y_bg1 >= -Globals::screenHeight / 2 + 5 ) {
-		y_bg1 = y_bg1 - 50 * deltaTime;
-		m_background1->Set2DPosition(x_bg, y_bg1);
+	y_bg1 = y_bg1 - 50 * deltaTime;
+	if (y_bg1 < -Globals::screenHeight / 2) {
+		y_bg1 += 2 * Globals::screenHeight;
+	}
+	m_background1->Set2DPosition(x_bg, y_bg1);
 		
+	y_bg2 = y_bg2 - 50 * deltaTime;
+	if (y_bg2 < -Globals::screenHeight / 2) {
+		y_bg2 += 2 * Globals::screenHeight;
 	}
-	else {
-		y_bg1 = 3 * Globals::screenHeight / 2 - 5;
-		m_background1->Set2DPosition(x_bg, y_bg1);
-		
-	}
-	 if (y_bg2 >= -Globals::screenHeight / 2 + 5) {
-		y_bg2 = y_bg2 - 50 * deltaTime;
-		m_background2->Set2DPosition(x_bg, y_bg2);
-	}
-	else  {
-		y_bg2 = 3 * Globals::screenHeight / 2 - 5;
-		m_background2->Set2DPosition(x_bg, y_bg2 );
-	}
-
-	 
+	m_background2->Set2DPosition(x_bg, y_bg2);
+	
+	 //move ob
 	 if (y_ob1 < Globals::screenHeight + 35) {
-	    y_ob1 += 120 * deltaTime;
-	    /*m_obstacle11->Set2DPosition(x_ob1, y_ob1);
-	    m_obstacle21->Set2DPosition(x_ob3, y_ob1);*/
-	    //coin->Set2DPosition(x_ob2, y_ob1);
-		m_obstacle11->Set2DPosition(x_ob2, y_ob1);
-		}
+	    y_ob1 += 50 * deltaTime;
+		m_obstacle11->Set2DPosition(x_ob1, y_ob1);
+		if(x_ob1 > 320) coin->Set2DPosition(x_ob1 - 320, y_ob1);
+		else coin->Set2DPosition(x_ob1 + 160, y_ob1);
+	 }
 	 else {
 		 y_ob1 = -35;
 		 isRandomX1 = true;
 		 if (isRandomX1) {
 			 isRandomX1 = false;
 			 int index = 0 + rand() % listPosXObstacle.size();
-			 x_ob2 = listPosXObstacle[index] + x_ob1;
+			 x_ob1 = listPosXObstacle[index] + x_ob;
 		 }
-		 m_obstacle11->Set2DPosition(x_ob2, y_ob1);
+		 m_obstacle11->Set2DPosition(x_ob1, y_ob1);
 	 }
+
 	 if (y_ob2 < Globals::screenHeight + 35) {
-		 y_ob2 += 120 * deltaTime;
-		 
-		 m_obstacle21->Set2DPosition(x_ob3, y_ob2);
+		 y_ob2 += 50 * deltaTime;
+		 if (y_ob2 == -35) {
+			 int index = 0 + rand() % listPosXObstacle.size();
+			 x_ob2 = listPosXObstacle[index] + x_ob;
+		 }
+		 m_obstacle21->Set2DPosition(x_ob2, y_ob2);
+		 if (x_ob2 > 320) coin1->Set2DPosition(x_ob2 - 320, y_ob2);
+		 else coin1->Set2DPosition(x_ob2 + 160, y_ob2);
 	 }
 	 else {
 		 y_ob2 = -35;
@@ -267,62 +251,56 @@ void GSPlay::Update(float deltaTime)
 		 if (isRandomX2) {
 			 isRandomX2 = false;
 			 int index = 0 + rand() % listPosXObstacle.size();
-			 x_ob3 = listPosXObstacle[index] + x_ob1;
+			 x_ob2 = listPosXObstacle[index] + x_ob;
 		 }
-		 m_obstacle21->Set2DPosition(x_ob3, y_ob2);
+		 m_obstacle21->Set2DPosition(x_ob2, y_ob2);
 	 }
-	 std::cout <<x_ob2<<"    "<< y_ob1 << std::endl;
-	 //move ob
-	 //if (y_ob1 < Globals::screenHeight + 35) {
-		// y_ob1 += 30 * deltaTime;
-		// /*m_obstacle11->Set2DPosition(x_ob1, y_ob1);
-		// m_obstacle21->Set2DPosition(x_ob3, y_ob1);*/
-		// coin->Set2DPosition(x_ob2, y_ob1);
-	 //}
-	 //else {
-		// y_ob1 = -35;
-		///* m_obstacle11->Set2DPosition(x_ob1, y_ob1);
-		// m_obstacle21->Set2DPosition(x_ob3, y_ob1);*/
-		// coin->Set2DPosition(x_ob2, y_ob1);
-	 //}
-	 //if (y_ob2 < Globals::screenHeight + 35) {
-		// y_ob2 += 30 * deltaTime;
-		// /*m_obstacle12->Set2DPosition(x_ob1, y_ob2);
-		// m_obstacle22->Set2DPosition(x_ob3, y_ob2);
-		// coin->Set2DPosition(x_ob2, y_ob1);*/
-	 //}
-	 //else {
-		// y_ob2 = -35;
-		// /*m_obstacle12->Set2DPosition(x_ob1, y_ob2);
-		// m_obstacle22->Set2DPosition(x_ob3, y_ob2);
-		// coin->Set2DPosition(x_ob2, y_ob1);*/
-	 //}
-	 //if (y_ob3 < Globals::screenHeight + 35) {
-		// y_ob3 += 30 * deltaTime;
-		// /*m_obstacle13->Set2DPosition(x_ob1, y_ob3);
-		// m_obstacle23->Set2DPosition(x_ob3, y_ob3);
-		// coin->Set2DPosition(x_ob2, y_ob1);*/
-	 //}
-	 //else {
-		// y_ob3 = -35;
-		///* m_obstacle13->Set2DPosition(x_ob1, y_ob3);
-		// m_obstacle23->Set2DPosition(x_ob3, y_ob3);
-		// coin->Set2DPosition(x_ob2, y_ob1);*/
-	 //}
-	 //if (y_ob4 < Globals::screenHeight + 35) {
-		// y_ob4 += 30 * deltaTime;
-		// /*m_obstacle14->Set2DPosition(x_ob1, y_ob4);
-		// m_obstacle24->Set2DPosition(x_ob3, y_ob4);
-		// coin->Set2DPosition(x_ob2, y_ob1);*/
-	 //}
-	 //else {
-		// y_ob4 = -35;
-		///* m_obstacle14->Set2DPosition(x_ob1, y_ob4);
-		// m_obstacle24->Set2DPosition(x_ob3, y_ob4);
-		// coin->Set2DPosition(x_ob2, y_ob1);*/
-	 //}
+
+	 if (y_ob3 < Globals::screenHeight + 35) {
+		 y_ob3 += 50 * deltaTime;
+		 if (y_ob3 == -35) {
+			 int index = 0 + rand() % listPosXObstacle.size();
+			 x_ob3 = listPosXObstacle[index] + x_ob;
+		 }
+		 m_obstacle22->Set2DPosition(x_ob3, y_ob3);
+		 if (x_ob3 > 320) coin2->Set2DPosition(x_ob3 - 160, y_ob3);
+		 else coin2->Set2DPosition(x_ob3 + 160, y_ob3);
+	 }
+	 else {
+		 y_ob3 = -35;
+		 isRandomX3 = true;
+		 if (isRandomX3) {
+			 isRandomX3 = false;
+			 int index = 0 + rand() % listPosXObstacle.size();
+			 x_ob3 = listPosXObstacle[index] + x_ob;
+		 }
+		 m_obstacle22->Set2DPosition(x_ob3, y_ob3);
+		 //if (x_ob3 > 320) coin1->Set2DPosition(x_ob3 - 160, y_ob3);
+		 //else coin1->Set2DPosition(x_ob3 + 160, y_ob3);
+	 }
 	 
-	 //Handle Key event
+	 if (y_ob4 < Globals::screenHeight + 35) {
+		 y_ob4 += 50 * deltaTime;
+		 if (y_ob4 == -35) {
+			 int index = 0 + rand() % listPosXObstacle.size();
+			 x_ob4 = listPosXObstacle[index] + x_ob;
+		 }
+		 m_obstacle12->Set2DPosition(x_ob4, y_ob4);
+		 if (x_ob4 > 320) coin3->Set2DPosition(x_ob4 - 160, y_ob4);
+		 else coin3->Set2DPosition(x_ob4 + 160, y_ob4);
+	 }
+	 else {
+		 y_ob4 = -35;
+		 isRandomX4 = true;
+		 if (isRandomX4) {
+			 isRandomX4 = false;
+			 int index = 0 + rand() % listPosXObstacle.size();
+			 x_ob4 = listPosXObstacle[index] + x_ob;
+		 }
+		 m_obstacle12->Set2DPosition(x_ob4, y_ob4);
+	 }
+	 
+	 //Handle Key event move fish
 	switch (m_KeyPress)
 	{
 	case 1:
@@ -351,6 +329,18 @@ void GSPlay::Update(float deltaTime)
 	{
 		it->Update(deltaTime);
 	}
+	for (auto it : m_coin1)
+	{
+		it->Update(deltaTime);
+	}
+	for (auto it : m_coin2)
+	{
+		it->Update(deltaTime);
+	}
+	for (auto it : m_coin3)
+	{
+		it->Update(deltaTime);
+	}
 }
 
 void GSPlay::Draw()
@@ -358,26 +348,30 @@ void GSPlay::Draw()
 	m_background1->Draw();
 	m_background2->Draw();
 	m_score->Draw();
-	m_obstacle11->Draw();
-	m_obstacle12->Draw();
-	m_obstacle13->Draw();
-	m_obstacle14->Draw();
-	m_obstacle21->Draw();
-	m_obstacle22->Draw();
-	m_obstacle23->Draw();
-	m_obstacle24->Draw();
+	
 	for (auto it : m_listButton)
 	{
 		it->Draw();
 	}
 	m_fish->Draw();
-	/*for (auto it : m_obstacle)
+	for (auto it : m_obstacle)
 	{
 		it->Draw();
-	}*/
+	}
 	for (auto it : m_coin)
 	{
 		it->Draw();
 	}
-
+	for (auto it : m_coin1)
+	{
+		it->Draw();
+	}
+	for (auto it : m_coin2)
+	{
+		it->Draw();
+	}
+	for (auto it : m_coin3)
+	{
+		it->Draw();
+	}
 }
