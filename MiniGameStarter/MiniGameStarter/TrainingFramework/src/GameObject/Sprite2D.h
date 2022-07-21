@@ -19,10 +19,11 @@ public:
 	void		Draw() override;
 	void		Update(GLfloat deltatime) override;
 
-	void		Set2DPosition(GLfloat x, GLfloat y);
-	
+	void		Set2DPosition(float x, float y);
 	void		SetRotation(Vector3 rotation);
 	void		SetSize(GLint width, GLint height);
 	void		Move(float deltaTime, Vector2 direction, float velocity);
+	float       GetPosX();
+	float		GetPosY();
 };
 

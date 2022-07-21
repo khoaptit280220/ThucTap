@@ -26,7 +26,10 @@ public:
 	void	HandleMouseMoveEvents(int x, int y) override;
 	void	Update(float deltaTime) override;
 	void	Draw() override;
-	bool	Check_collision();
+	bool	CheckCollision();
+	void    CheckCoin();
+	int     GetScoreFile(std::string fileName);
+	void    SetScoreFile(std::string fileName, int Max_score);
 	int m_KeyPress;
 	
 
@@ -41,7 +44,7 @@ private:
 	std::list<std::shared_ptr<SpriteAnimation>>	m_coin3;
 	std::list<std::shared_ptr<Sprite2D>>	m_obstacle;
 	float x_fish = Globals::screenWidth /2;
-	float y_fish = 650 + 50;
+	float y_fish = 650;
 	float x_bg = Globals::screenWidth / 2;
 	float y_bg1 = Globals::screenHeight / 2 ;
 	float y_bg2 = 3 * Globals::screenHeight / 2 ;
@@ -54,17 +57,12 @@ private:
 	float y_ob2 = -125;
 	float y_ob3 = -335;
 	float y_ob4 = -555;
-	float sum;
+	int score;
 	std::shared_ptr<Sprite2D> m_fish;
 	std::shared_ptr<Sprite2D> m_obstacle11;
 	std::shared_ptr<Sprite2D> m_obstacle21;
 	std::shared_ptr<Sprite2D> m_obstacle12;
 	std::shared_ptr<Sprite2D> m_obstacle22;
-	std::shared_ptr<Sprite2D> m_obstacle13;
-	std::shared_ptr<Sprite2D> m_obstacle23;
-	std::shared_ptr<Sprite2D> m_obstacle14;
-	std::shared_ptr<Sprite2D> m_obstacle24;
-	std::shared_ptr<Sprite2D> m_obsTemp;
 	std::shared_ptr<SpriteAnimation> coin;
 	std::shared_ptr<SpriteAnimation> coin1;
 	std::shared_ptr<SpriteAnimation> coin2;
