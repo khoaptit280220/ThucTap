@@ -1,53 +1,30 @@
 ﻿  GSPlay.cpp
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(43,38): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(45,36): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(46,38): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(47,42): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(48,48): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(49,49): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(224,52): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(224,45): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(225,41): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(225,34): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(245,55): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(245,48): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(246,43): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(246,36): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(266,55): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(266,48): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(267,43): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(267,36): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(289,55): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(289,48): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(290,43): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(290,36): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(50,38): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(52,36): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(53,38): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(54,42): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(55,48): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(56,49): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(36,27): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(158,77): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
           with
           [
               _Ty=double
           ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2029): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(_Ty &,std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&) noexcept(false)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2029): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,TextColor,double>(_Ty &,std::shared_ptr<Shader> &,std::shared_ptr<Font> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,TextColor &&,double &&) noexcept(false)' being compiled
           with
           [
               _Ty=Text
           ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,TextColor &&,double &&)' being compiled
           with
           [
               _Ty=Text
           ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,TextColor &&,double &&)' being compiled
           with
           [
               _Ty=Text
           ]
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(100): message : see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
-  GameStateBase.cpp
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(43,38): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(45,36): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(46,38): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(47,42): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(48,48): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.h(49,49): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
-C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(130): error C4716: 'GSPlay::Check_collision': must return a value
+C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(128): message : see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,TextColor &&,double &&)' being compiled
+  TrainingFramework.vcxproj -> C:\Users\han.glschool\Desktop\ThucTap\MiniGameStarter\MiniGameStarter\BIN-Nvidia\TrainingFramework.exe

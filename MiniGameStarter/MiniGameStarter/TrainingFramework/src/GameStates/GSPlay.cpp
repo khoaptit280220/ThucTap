@@ -70,10 +70,10 @@ void GSPlay::Init()
 	m_background2->SetSize(Globals::screenWidth, Globals::screenHeight);
 
 	//fish
-	texture = ResourceManagers::GetInstance()->GetTexture("fishKhoa.tga");
+	texture = ResourceManagers::GetInstance()->GetTexture("fish1.tga");
 	m_fish = std::make_shared<Sprite2D>(model, shader, texture);
 	m_fish->Set2DPosition(x_fish, y_fish);
-	m_fish->SetSize(100, 150);
+	m_fish->SetSize(70, 100);
 
 	//Obstacle1
 	texture = ResourceManagers::GetInstance()->GetTexture("obstacleKhoa.tga");
@@ -131,18 +131,22 @@ void GSPlay::Init()
 	//Obstacle Coint
 	shader = ResourceManagers::GetInstance()->GetShader("Animation");
 	texture = ResourceManagers::GetInstance()->GetTexture("coin1.tga");
-	coin = std::make_shared<SpriteAnimation>(model, shader, texture, 6, 1, 0, 0.1f);
-	coin->SetSize(50, 50);
-	m_coin.push_back(coin);
 	coin1 = std::make_shared<SpriteAnimation>(model, shader, texture, 6, 1, 0, 0.1f);
 	coin1->SetSize(50, 50);
 	m_coin1.push_back(coin1);
+	m_coin.push_back(m_coin1);
 	coin2 = std::make_shared<SpriteAnimation>(model, shader, texture, 6, 1, 0, 0.1f);
 	coin2->SetSize(50, 50);
 	m_coin2.push_back(coin2);
+	m_coin.push_back(m_coin2);
 	coin3 = std::make_shared<SpriteAnimation>(model, shader, texture, 6, 1, 0, 0.1f);
 	coin3->SetSize(50, 50);
 	m_coin3.push_back(coin3);
+	m_coin.push_back(m_coin3);
+	coin4 = std::make_shared<SpriteAnimation>(model, shader, texture, 6, 1, 0, 0.1f);
+	coin4->SetSize(50, 50);
+	m_coin4.push_back(coin4);
+	m_coin.push_back(m_coin4);
 
 	m_KeyPress = 0;
 }
@@ -227,8 +231,8 @@ void GSPlay::HandleMouseMoveEvents(int x, int y)
 bool GSPlay::CheckCollision()
 {
 	for (auto it : m_obstacle) {
-		if ((it->GetPosY() - 110 < y_fish - 30) && (it->GetPosY() + 110 > y_fish + 30)) {
-			if ((it->GetPosX() - 130 < x_fish - 50) && (it->GetPosX() + 130 > x_fish + 50)) {
+		if ((it->GetPosY() - 95 < y_fish - 30) && (it->GetPosY() + 95 > y_fish + 30 )) {
+			if ((it->GetPosX() - 105 < x_fish -30) && (it->GetPosX() + 105 > x_fish +30 )) {
 				return true;
 			}
 		}
@@ -236,8 +240,45 @@ bool GSPlay::CheckCollision()
 	return false;
 }
 
-void GSPlay::CheckCoin() {
-
+bool GSPlay::CheckCoin1() {
+	for (auto it : m_coin1) {
+		if ((it->GetPosY() + 20 >= y_fish - 50)  && (it->GetPosY() + 20 < y_fish - 45) ) {
+			if ((it->GetPosX() > x_fish - 30) && (it->GetPosX() < x_fish + 30)) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+bool GSPlay::CheckCoin2() {
+	for (auto it : m_coin2) {
+		if ((it->GetPosY() + 20 >= y_fish - 50) && (it->GetPosY() + 20 < y_fish - 45) ) {
+			if ((it->GetPosX() > x_fish - 30) && (it->GetPosX() < x_fish + 30)) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+bool GSPlay::CheckCoin3() {
+	for (auto it : m_coin3) {
+		if ((it->GetPosY() + 20 >= y_fish - 50) && (it->GetPosY() + 20 < y_fish - 45)) {
+			if ((it->GetPosX() > x_fish - 30) && (it->GetPosX() < x_fish + 30)) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+bool GSPlay::CheckCoin4() {
+	for (auto it : m_coin4) {
+		if ((it->GetPosY() + 20 >= y_fish - 50) && (it->GetPosY() + 20 < y_fish - 45)) {
+			if ((it->GetPosX() > x_fish - 30) && (it->GetPosX() < x_fish + 30)) {
+				return true;
+			}
+		}
+	}
+	return false;
 }
 void GSPlay::Update(float deltaTime)
 {
@@ -260,8 +301,8 @@ void GSPlay::Update(float deltaTime)
 		if (y_ob1 < Globals::screenHeight + 35) {
 			y_ob1 += 50 * deltaTime;
 			m_obstacle11->Set2DPosition(x_ob1, y_ob1);
-			if (x_ob1 > 320) coin->Set2DPosition(x_ob1 - 320, y_ob1);
-			else coin->Set2DPosition(x_ob1 + 160, y_ob1);
+			if (x_ob1 > 320) coin1->Set2DPosition(x_ob1 - 320, y_ob1);
+			else coin1->Set2DPosition(x_ob1 + 160, y_ob1);
 		}
 		else {
 			y_ob1 = -35;
@@ -272,6 +313,7 @@ void GSPlay::Update(float deltaTime)
 				x_ob1 = listPosXObstacle[index] + x_ob;
 			}
 			m_obstacle11->Set2DPosition(x_ob1, y_ob1);
+			isDrawCoin1 = true;
 		}
 
 		if (y_ob2 < Globals::screenHeight + 35) {
@@ -281,8 +323,8 @@ void GSPlay::Update(float deltaTime)
 				x_ob2 = listPosXObstacle[index] + x_ob;
 			}
 			m_obstacle21->Set2DPosition(x_ob2, y_ob2);
-			if (x_ob2 > 320) coin1->Set2DPosition(x_ob2 - 320, y_ob2);
-			else coin1->Set2DPosition(x_ob2 + 160, y_ob2);
+			if (x_ob2 > 320) coin2->Set2DPosition(x_ob2 - 320, y_ob2);
+			else coin2->Set2DPosition(x_ob2 + 160, y_ob2);
 		}
 		else {
 			y_ob2 = -35;
@@ -293,6 +335,7 @@ void GSPlay::Update(float deltaTime)
 				x_ob2 = listPosXObstacle[index] + x_ob;
 			}
 			m_obstacle21->Set2DPosition(x_ob2, y_ob2);
+			isDrawCoin2 = true;
 		}
 
 		if (y_ob3 < Globals::screenHeight + 35) {
@@ -302,8 +345,8 @@ void GSPlay::Update(float deltaTime)
 				x_ob3 = listPosXObstacle[index] + x_ob;
 			}
 			m_obstacle22->Set2DPosition(x_ob3, y_ob3);
-			if (x_ob3 > 320) coin2->Set2DPosition(x_ob3 - 160, y_ob3);
-			else coin2->Set2DPosition(x_ob3 + 160, y_ob3);
+			if (x_ob3 > 320) coin3->Set2DPosition(x_ob3 - 160, y_ob3);
+			else coin3->Set2DPosition(x_ob3 + 160, y_ob3);
 		}
 		else {
 			y_ob3 = -35;
@@ -314,8 +357,7 @@ void GSPlay::Update(float deltaTime)
 				x_ob3 = listPosXObstacle[index] + x_ob;
 			}
 			m_obstacle22->Set2DPosition(x_ob3, y_ob3);
-			//if (x_ob3 > 320) coin1->Set2DPosition(x_ob3 - 160, y_ob3);
-			//else coin1->Set2DPosition(x_ob3 + 160, y_ob3);
+			isDrawCoin3 = true;
 		}
 
 		if (y_ob4 < Globals::screenHeight + 35) {
@@ -325,8 +367,8 @@ void GSPlay::Update(float deltaTime)
 				x_ob4 = listPosXObstacle[index] + x_ob;
 			}
 			m_obstacle12->Set2DPosition(x_ob4, y_ob4);
-			if (x_ob4 > 320) coin3->Set2DPosition(x_ob4 - 160, y_ob4);
-			else coin3->Set2DPosition(x_ob4 + 160, y_ob4);
+			if (x_ob4 > 320) coin4->Set2DPosition(x_ob4 - 160, y_ob4);
+			else coin4->Set2DPosition(x_ob4 + 160, y_ob4);
 		}
 		else {
 			y_ob4 = -35;
@@ -337,6 +379,7 @@ void GSPlay::Update(float deltaTime)
 				x_ob4 = listPosXObstacle[index] + x_ob;
 			}
 			m_obstacle12->Set2DPosition(x_ob4, y_ob4);
+			isDrawCoin4 = true;
 		}
 
 		//Handle Key event move fish
@@ -358,28 +401,40 @@ void GSPlay::Update(float deltaTime)
 			break;
 		}
 
+		if (CheckCoin1() && isDrawCoin1) {
+			score += 1;
+			isDrawCoin1 = false;
+			m_score->SetText("score: " + std::to_string(score));
+		}
+		if (CheckCoin2() && isDrawCoin2) {
+			score += 1;
+			isDrawCoin2 = false;
+			m_score->SetText("score: " + std::to_string(score));
+		}
+		if (CheckCoin3() && isDrawCoin3) {
+			score += 1;
+			isDrawCoin3 = false;
+			m_score->SetText("score: " + std::to_string(score));
+		}
+		if (CheckCoin4() && isDrawCoin4) {
+			score += 1;
+			isDrawCoin4 = false;
+			m_score->SetText("score: " + std::to_string(score));
+		}
+
 		for (auto it : m_listButton)
 		{
 			it->Update(deltaTime);
 		}
 		for (auto it : m_coin)
 		{
-			it->Update(deltaTime);
+			for (auto it : it)
+			{
+				it->Update(deltaTime);
+			}
 		}
-		for (auto it : m_coin1)
-		{
-			it->Update(deltaTime);
-		}
-		for (auto it : m_coin2)
-		{
-			it->Update(deltaTime);
-		}
-		for (auto it : m_coin3)
-		{
-			it->Update(deltaTime);
-		}
-		CheckCoin();
 	}
+
 	else 
 	{
 		auto shader = ResourceManagers::GetInstance()->GetShader("TextShader");
@@ -400,30 +455,38 @@ void GSPlay::Draw()
 	m_background1->Draw();
 	m_background2->Draw();
 	m_score->Draw();
-	
+	m_fish->Draw();
 	for (auto it : m_listButton)
 	{
 		it->Draw();
 	}
-	m_fish->Draw();
+	
 	for (auto it : m_obstacle)
 	{
 		it->Draw();
 	}
-	for (auto it : m_coin)
-	{
-		it->Draw();
+	if (isDrawCoin1) {
+		for (auto it : m_coin1)
+		{
+			it->Draw();
+		}
 	}
-	for (auto it : m_coin1)
-	{
-		it->Draw();
+	if (isDrawCoin2) {
+		for (auto it : m_coin2)
+		{
+			it->Draw();
+		}
 	}
-	for (auto it : m_coin2)
-	{
-		it->Draw();
+	if (isDrawCoin3) {
+		for (auto it : m_coin3)
+		{
+			it->Draw();
+		}
 	}
-	for (auto it : m_coin3)
-	{
-		it->Draw();
+	if (isDrawCoin4) {
+		for (auto it : m_coin4)
+		{
+			it->Draw();
+		}
 	}
 }

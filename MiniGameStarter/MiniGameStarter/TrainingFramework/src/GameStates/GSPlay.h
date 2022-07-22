@@ -27,7 +27,10 @@ public:
 	void	Update(float deltaTime) override;
 	void	Draw() override;
 	bool	CheckCollision();
-	void    CheckCoin();
+	bool    CheckCoin1();
+	bool    CheckCoin2();
+	bool    CheckCoin3();
+	bool    CheckCoin4();
 	int     GetScoreFile(std::string fileName);
 	void    SetScoreFile(std::string fileName, int Max_score);
 	int m_KeyPress;
@@ -38,10 +41,11 @@ private:
 	std::shared_ptr<Sprite2D>	m_background2;
 	std::shared_ptr<Text>		m_score;
 	std::list<std::shared_ptr<GameButton>>	m_listButton;
-	std::list<std::shared_ptr<SpriteAnimation>>	m_coin;
+	std::list<std::list<std::shared_ptr<SpriteAnimation>>>	m_coin;
 	std::list<std::shared_ptr<SpriteAnimation>>	m_coin1;
 	std::list<std::shared_ptr<SpriteAnimation>>	m_coin2;
 	std::list<std::shared_ptr<SpriteAnimation>>	m_coin3;
+	std::list<std::shared_ptr<SpriteAnimation>>	m_coin4;
 	std::list<std::shared_ptr<Sprite2D>>	m_obstacle;
 	float x_fish = Globals::screenWidth /2;
 	float y_fish = 650;
@@ -63,10 +67,10 @@ private:
 	std::shared_ptr<Sprite2D> m_obstacle21;
 	std::shared_ptr<Sprite2D> m_obstacle12;
 	std::shared_ptr<Sprite2D> m_obstacle22;
-	std::shared_ptr<SpriteAnimation> coin;
 	std::shared_ptr<SpriteAnimation> coin1;
 	std::shared_ptr<SpriteAnimation> coin2;
 	std::shared_ptr<SpriteAnimation> coin3;
+	std::shared_ptr<SpriteAnimation> coin4;
 	std::vector<int> listPosXObstacle;
 	bool isRandomOb1 = false;
 	bool isRandomOb2 = false;
@@ -75,5 +79,9 @@ private:
 	bool isRandomX2 = false;
 	bool isRandomX3 = false;
 	bool isRandomX4 = false;
+	bool isDrawCoin1 = true;
+	bool isDrawCoin2 = true;
+	bool isDrawCoin3 = true;
+	bool isDrawCoin4 = true;
 };
 
