@@ -70,7 +70,7 @@ void GSMenu::Init()
 	m_textGameName = std::make_shared< Text>(shader, font, "Fish Run", Vector4(1.0f, 0.5f, 0.0f, 1.0f), 3.0f);
 	m_textGameName->Set2DPosition(Vector2(100, 200));
 
-	std::string name = "Alarm01.wav";
+	std::string name = "music_bg.wav";
 	ResourceManagers::GetInstance()->PlaySound(name);
 }
 

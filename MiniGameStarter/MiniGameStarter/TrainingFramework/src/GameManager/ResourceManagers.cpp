@@ -16,7 +16,7 @@ ResourceManagers::ResourceManagers()
 	m_TexturePath = dataPath + "Textures\\";
 	m_ModelsPath = dataPath + "Models\\";
 	m_FontPath = dataPath + "fonts\\";
-	m_SoundPath = dataPath + "Sounds\\";
+	m_SoundPath = dataPath + "sound\\";
 	m_Soloud.init();
 }
 

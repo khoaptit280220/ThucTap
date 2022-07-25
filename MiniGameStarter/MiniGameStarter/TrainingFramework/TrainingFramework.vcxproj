@@ -363,7 +363,7 @@
     <ClCompile Include="src\GameStates\GSOption.cpp" />
     <ClCompile Include="src\GameStates\GSPause.cpp" />
     <ClCompile Include="src\GameStates\GSPlay.cpp" />
-    <ClCompile Include="src\GameStates\GSWin.cpp" />
+    <ClCompile Include="src\GameStates\GSScore.cpp" />
     <ClCompile Include="src\TrainingFramework.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -390,10 +390,13 @@
     <ClInclude Include="src\GameStates\GSOption.h" />
     <ClInclude Include="src\GameStates\GSPause.h" />
     <ClInclude Include="src\GameStates\GSPlay.h" />
-    <ClInclude Include="src\GameStates\GSWin.h" />
+    <ClInclude Include="src\GameStates\GSScore.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\score.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

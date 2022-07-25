@@ -12,7 +12,9 @@
 #include <string>
 #include<iostream>
 #include<fstream>
+#include"GSScore.h"
 using namespace std;
+GSScore gsscore;
 GSPlay::GSPlay()
 {
 }
@@ -23,9 +25,14 @@ GSPlay::~GSPlay()
 }
 
 int GSPlay::GetScoreFile(std::string fileName) {
-	ifstream f(fileName);
-	string maxScore;
-	f >> maxScore;
+	FILE *f= fopen(fileName.c_str(),"rb");
+	if (f == nullptr)
+	{
+		return -1;
+	}
+	std::string maxScore;
+	fscanf(f,"%c\n", &maxScore);
+	
 	reverse(maxScore.begin(), maxScore.end());
 	long long binarynum = stoi(maxScore);
 	int decimalnum = 0, temp = 0, remainder;
@@ -36,7 +43,9 @@ int GSPlay::GetScoreFile(std::string fileName) {
 		decimalnum = decimalnum + remainder * pow(2, temp);
 		temp++;
 	}
+	fclose(f);
 	return (decimalnum - 2) / 5;
+	
 }
 void GSPlay::SetScoreFile(std::string fileName, int Max_score) {
 	int temp1 = Max_score * 5 + 2; // tự quy ước
@@ -242,7 +251,7 @@ bool GSPlay::CheckCollision()
 
 bool GSPlay::CheckCoin1() {
 	for (auto it : m_coin1) {
-		if ((it->GetPosY() + 20 >= y_fish - 50)  && (it->GetPosY() + 20 < y_fish - 45) ) {
+		if ((it->GetPosY() + 20 >= y_fish - 50)  && (it->GetPosY() + 20 < y_fish + 20) ) {
 			if ((it->GetPosX() > x_fish - 30) && (it->GetPosX() < x_fish + 30)) {
 				return true;
 			}
@@ -252,7 +261,7 @@ bool GSPlay::CheckCoin1() {
 }
 bool GSPlay::CheckCoin2() {
 	for (auto it : m_coin2) {
-		if ((it->GetPosY() + 20 >= y_fish - 50) && (it->GetPosY() + 20 < y_fish - 45) ) {
+		if ((it->GetPosY() + 20 >= y_fish - 50) && (it->GetPosY() + 20 < y_fish + 20) ) {
 			if ((it->GetPosX() > x_fish - 30) && (it->GetPosX() < x_fish + 30)) {
 				return true;
 			}
@@ -262,7 +271,7 @@ bool GSPlay::CheckCoin2() {
 }
 bool GSPlay::CheckCoin3() {
 	for (auto it : m_coin3) {
-		if ((it->GetPosY() + 20 >= y_fish - 50) && (it->GetPosY() + 20 < y_fish - 45)) {
+		if ((it->GetPosY() + 20 >= y_fish - 50) && (it->GetPosY() + 20 < y_fish + 20)) {
 			if ((it->GetPosX() > x_fish - 30) && (it->GetPosX() < x_fish + 30)) {
 				return true;
 			}
@@ -272,7 +281,7 @@ bool GSPlay::CheckCoin3() {
 }
 bool GSPlay::CheckCoin4() {
 	for (auto it : m_coin4) {
-		if ((it->GetPosY() + 20 >= y_fish - 50) && (it->GetPosY() + 20 < y_fish - 45)) {
+		if ((it->GetPosY() + 20 >= y_fish - 50) && (it->GetPosY() + 20 < y_fish + 20)) {
 			if ((it->GetPosX() > x_fish - 30) && (it->GetPosX() < x_fish + 30)) {
 				return true;
 			}
@@ -280,6 +289,7 @@ bool GSPlay::CheckCoin4() {
 	}
 	return false;
 }
+
 void GSPlay::Update(float deltaTime)
 {
 	if(!CheckCollision())
@@ -437,15 +447,13 @@ void GSPlay::Update(float deltaTime)
 
 	else 
 	{
-		auto shader = ResourceManagers::GetInstance()->GetShader("TextShader");
-		std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
+		m_score->SetText("Game over, Your score: " + std::to_string(score));
+		m_score->Set2DPosition(Vector2(65, 300));
 
-		m_score = std::make_shared< Text>(shader, font, "Game over, Your score: " + std::to_string(score), TextColor::RED, 1.0);
-		m_score->Set2DPosition(Vector2(60, 350));
-
-		if (score > GetScoreFile("src/score.txt")) {
+		//gsscore.inFile(0);
+		/*if (score > GetScoreFile("src/score.txt")) {
 			SetScoreFile("src/score.txt", score);
-		}
+		}*/
 	}
 	
 }

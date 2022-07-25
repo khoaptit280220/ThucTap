@@ -42,6 +42,16 @@ void GSPause::Init()
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);
 		});
 	m_listButton.push_back(button_replay);
+
+	//button high score
+	texture = ResourceManagers::GetInstance()->GetTexture("btn_menu.tga");
+	std::shared_ptr<GameButton> button_HighScore = std::make_shared<GameButton>(model, shader, texture);
+	button_HighScore->Set2DPosition(200, 545);
+	button_HighScore->SetSize(55, 55);
+	button_HighScore->SetOnClick([]() {
+		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_HIGHSCORE);
+		});
+	m_listButton.push_back(button_HighScore);
 	
 	//button setting
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_settings.tga");
@@ -60,7 +70,9 @@ void GSPause::Init()
 	// tile replay
 	m_text_replay = std::make_shared< Text>(shader, font, "Replay", Vector4(0.5f, 0.5f, 0.0f, 1.0f), 1.0f);
 	m_text_replay->Set2DPosition(Vector2(165, 495));
-	
+	//title high score
+	m_text_HighScore = std::make_shared< Text>(shader, font, "High Score", Vector4(0.5f, 0.5f, 0.0f, 1.0f), 1.0f);
+	m_text_HighScore->Set2DPosition(Vector2(165, 595));
 	// title setting
 	m_text_setting = std::make_shared< Text>(shader, font, "Setting", Vector4(0.5f, 0.5f, 0.0f, 1.0f), 1.0f);
 	m_text_setting->Set2DPosition(Vector2(160, 695));
@@ -121,5 +133,6 @@ void GSPause::Draw()
 	m_text_resume->Draw();
 	m_text_replay->Draw();
 	m_text_setting->Draw();
+	m_text_HighScore->Draw();
 	
 }

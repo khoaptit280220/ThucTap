@@ -42,7 +42,7 @@ void GSCredit::Init()
 	m_textCreatorName = std::make_shared< Text>(shader, font, "Creator: Ngo Khoa", Vector4(1.0f, 0.5f, 0.0f, 1.0f), 1.0f);
 	m_textCreatorName->Set2DPosition(Vector2(100, 300));
 
-	std::string name = "Alarm01.wav";
+	std::string name = "music_bg.wav";
 	ResourceManagers::GetInstance()->PlaySound(name);
 }
 

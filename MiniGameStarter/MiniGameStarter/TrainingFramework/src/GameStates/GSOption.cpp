@@ -79,8 +79,24 @@ void GSOption::Init()
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
 	m_textGameName = std::make_shared< Text>(shader, font, "Fish Run", Vector4(1.0f, 0.5f, 0.0f, 1.0f), 3.0f);
 	m_textGameName->Set2DPosition(Vector2(100, 200));
+	
+	//title on sound
+	m_text_onSound = std::make_shared< Text>(shader, font, "On Sound", Vector4(0.5f, 0.5f, 0.0f, 1.0f), 1.0f);
+	m_text_onSound->Set2DPosition(Vector2(Globals::screenWidth / 2 - 55, Globals::screenHeight / 2 - 50));
+	
+	// tile off sound
+	m_text_offSound = std::make_shared< Text>(shader, font, "Off Sound", Vector4(0.5f, 0.5f, 0.0f, 1.0f), 1.0f);
+	m_text_offSound->Set2DPosition(Vector2(Globals::screenWidth / 2 - 55, Globals::screenHeight / 2 + 60));
 
-	std::string name = "Alarm01.wav";
+	// title on music
+	m_text_onMusic = std::make_shared< Text>(shader, font, "On Music", Vector4(0.5f, 0.5f, 0.0f, 1.0f), 1.0f);
+	m_text_onMusic->Set2DPosition(Vector2(Globals::screenWidth / 2 - 55, Globals::screenHeight / 2 + 170));
+	
+	// title off music
+	m_text_offMusic = std::make_shared< Text>(shader, font, "Off Music", Vector4(0.5f, 0.5f, 0.0f, 1.0f), 1.0f);
+	m_text_offMusic->Set2DPosition(Vector2(Globals::screenWidth / 2 - 55, Globals::screenHeight / 2 + 280));
+
+	std::string name = "music_bg.wav";
 	ResourceManagers::GetInstance()->PlaySound(name);
 }
 
@@ -139,4 +155,8 @@ void GSOption::Draw()
 		it->Draw();
 	}
 	m_textGameName->Draw();
+	m_text_offMusic->Draw();
+	m_text_offSound->Draw();
+	m_text_onMusic->Draw();
+	m_text_onSound->Draw();
 }
