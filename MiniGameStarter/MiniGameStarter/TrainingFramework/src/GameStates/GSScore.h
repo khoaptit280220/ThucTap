@@ -13,7 +13,7 @@ class GSScore :
 public:
 	GSScore();
 	~GSScore();
-	int inFile(std::string fileName);
+	int     GetScoreFile(std::string fileName);
 	void	Init() override;
 	void	Exit() override;
 

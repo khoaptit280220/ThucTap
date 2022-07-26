@@ -13,6 +13,7 @@
 #include<iostream>
 #include<fstream>
 #include"GSScore.h"
+#include "soloud.h"
 using namespace std;
 GSScore gsscore;
 GSPlay::GSPlay()
@@ -25,14 +26,9 @@ GSPlay::~GSPlay()
 }
 
 int GSPlay::GetScoreFile(std::string fileName) {
-	FILE *f= fopen(fileName.c_str(),"rb");
-	if (f == nullptr)
-	{
-		return -1;
-	}
-	std::string maxScore;
-	fscanf(f,"%c\n", &maxScore);
-	
+	ifstream f(fileName);
+	string maxScore;
+	f >> maxScore;
 	reverse(maxScore.begin(), maxScore.end());
 	long long binarynum = stoi(maxScore);
 	int decimalnum = 0, temp = 0, remainder;
@@ -43,7 +39,6 @@ int GSPlay::GetScoreFile(std::string fileName) {
 		decimalnum = decimalnum + remainder * pow(2, temp);
 		temp++;
 	}
-	fclose(f);
 	return (decimalnum - 2) / 5;
 	
 }
@@ -61,6 +56,7 @@ void GSPlay::SetScoreFile(std::string fileName, int Max_score) {
 
 void GSPlay::Init()
 {
+	ResourceManagers::GetInstance()->PlaySound("music_bg.wav", true);
 	listPosXObstacle.push_back(0);
 	listPosXObstacle.push_back(160);
 	listPosXObstacle.push_back(320);
@@ -70,6 +66,9 @@ void GSPlay::Init()
 
 	// background
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
+
+
+
 	m_background1 = std::make_shared<Sprite2D>(model, shader, texture);
 	m_background1->Set2DPosition(x_bg, y_bg1);
 	m_background1->SetSize(Globals::screenWidth, Globals::screenHeight);
@@ -413,21 +412,25 @@ void GSPlay::Update(float deltaTime)
 
 		if (CheckCoin1() && isDrawCoin1) {
 			score += 1;
+			ResourceManagers::GetInstance()->PlaySound("point.wav", false);
 			isDrawCoin1 = false;
 			m_score->SetText("score: " + std::to_string(score));
 		}
 		if (CheckCoin2() && isDrawCoin2) {
 			score += 1;
+			ResourceManagers::GetInstance()->PlaySound("point.wav", false);
 			isDrawCoin2 = false;
 			m_score->SetText("score: " + std::to_string(score));
 		}
 		if (CheckCoin3() && isDrawCoin3) {
 			score += 1;
+			ResourceManagers::GetInstance()->PlaySound("point.wav", false);
 			isDrawCoin3 = false;
 			m_score->SetText("score: " + std::to_string(score));
 		}
 		if (CheckCoin4() && isDrawCoin4) {
 			score += 1;
+			ResourceManagers::GetInstance()->PlaySound("point.wav", false);
 			isDrawCoin4 = false;
 			m_score->SetText("score: " + std::to_string(score));
 		}
@@ -447,13 +450,21 @@ void GSPlay::Update(float deltaTime)
 
 	else 
 	{
+		
+		if (!die) {
+			ResourceManagers::GetInstance()->PlaySound("hit.wav", false);
+			ResourceManagers::GetInstance()->PlaySound("die.wav", false);
+			die = true;
+			return;
+		}
 		m_score->SetText("Game over, Your score: " + std::to_string(score));
 		m_score->Set2DPosition(Vector2(65, 300));
 
 		//gsscore.inFile(0);
-		/*if (score > GetScoreFile("src/score.txt")) {
+		if (score > GetScoreFile("src/score.txt")) {
 			SetScoreFile("src/score.txt", score);
-		}*/
+		}	
+		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
 	}
 	
 }

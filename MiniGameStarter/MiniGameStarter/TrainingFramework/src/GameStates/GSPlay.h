@@ -83,5 +83,6 @@ private:
 	bool isDrawCoin2 = true;
 	bool isDrawCoin3 = true;
 	bool isDrawCoin4 = true;
+	bool die = false;
 };
 

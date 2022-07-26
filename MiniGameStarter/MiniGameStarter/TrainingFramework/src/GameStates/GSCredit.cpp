@@ -43,7 +43,10 @@ void GSCredit::Init()
 	m_textCreatorName->Set2DPosition(Vector2(100, 300));
 
 	std::string name = "music_bg.wav";
-	ResourceManagers::GetInstance()->PlaySound(name);
+	if (Globals::isMusic) {
+		ResourceManagers::GetInstance()->PlaySound(name);
+	}
+	
 }
 
 void GSCredit::Exit()

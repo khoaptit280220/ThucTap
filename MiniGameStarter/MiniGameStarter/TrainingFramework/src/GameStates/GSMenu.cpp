@@ -14,6 +14,10 @@ GSMenu::~GSMenu()
 
 void GSMenu::Init()
 {
+
+	std::string name = "music_bg.wav";
+	ResourceManagers::GetInstance()->PlaySound(name);
+
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
 	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_main_menu.tga");
 
@@ -30,6 +34,7 @@ void GSMenu::Init()
 	btnPlay->SetSize(150, 150);
 	btnPlay->SetOnClick([]() {
 			GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);
+			ResourceManagers::GetInstance()->StopSound("music_bg.wav");
 		});
 	m_listButton.push_back(btnPlay);
 
@@ -51,6 +56,7 @@ void GSMenu::Init()
 	btnOption->SetSize(100, 100);
 	btnOption->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_OPTION);
+		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
 		});
 	m_listButton.push_back(btnOption);
 
@@ -61,6 +67,7 @@ void GSMenu::Init()
 	btnCredit->SetSize(100, 100);
 	btnCredit->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_CREDIT);
+		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
 		});
 	m_listButton.push_back(btnCredit);
 
@@ -70,8 +77,7 @@ void GSMenu::Init()
 	m_textGameName = std::make_shared< Text>(shader, font, "Fish Run", Vector4(1.0f, 0.5f, 0.0f, 1.0f), 3.0f);
 	m_textGameName->Set2DPosition(Vector2(100, 200));
 
-	std::string name = "music_bg.wav";
-	ResourceManagers::GetInstance()->PlaySound(name);
+	
 }
 
 void GSMenu::Exit()

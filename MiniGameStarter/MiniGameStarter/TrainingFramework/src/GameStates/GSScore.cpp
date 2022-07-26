@@ -16,33 +16,27 @@ using namespace std;
 GSScore::GSScore() {}
 GSScore::~GSScore() {}
 
-int GSScore::inFile(std::string fileName) {
-	FILE* f = fopen(fileName.c_str(), "rb");
-	if (f == nullptr)
+int GSScore::GetScoreFile(std::string fileName) {
+	ifstream f(fileName);
+	string maxScore;
+	f >> maxScore;
+	reverse(maxScore.begin(), maxScore.end());
+	long long binarynum = stoi(maxScore);
+	int decimalnum = 0, temp = 0, remainder;
+	while (binarynum != 0)
 	{
-		return -1;
+		remainder = binarynum % 10;
+		binarynum = binarynum / 10;
+		decimalnum = decimalnum + remainder * pow(2, temp);
+		temp++;
 	}
-	int maxScore;
-	fscanf(f, "%d\n", &maxScore);
+	return (decimalnum - 2) / 5;
 
-	///*reverse(maxScore.begin(), maxScore.end());
-	//long long binarynum = stoi(maxScore);*/
-	//int decimalnum = 0, temp = 0, remainder;
-	//while (binarynum != 0)
-	//{
-	//	remainder = binarynum % 10;
-	//	binarynum = binarynum / 10;
-	//	decimalnum = decimalnum + remainder * pow(2, temp);
-	//	temp++;
-	//}
-	//fclose(f);
-	//return (decimalnum - 2) / 5;
-	return maxScore;
 }
 void GSScore::Init()
 {
 
-	std::string text_HighScore = std::to_string(inFile("src/score.txt"));
+	std::string text_HighScore = std::to_string(GetScoreFile("src/score.txt"));
 
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
 	auto texture = ResourceManagers::GetInstance()->GetTexture("./images/background_menu.tga");
