@@ -162,9 +162,4 @@
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="src\score.txt">
-      <Filter>TrainingFramework\src</Filter>
-    </Text>
-  </ItemGroup>
 </Project>

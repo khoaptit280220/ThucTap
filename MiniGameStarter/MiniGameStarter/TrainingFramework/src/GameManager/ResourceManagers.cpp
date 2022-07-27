@@ -17,6 +17,7 @@ ResourceManagers::ResourceManagers()
 	m_ModelsPath = dataPath + "Models\\";
 	m_FontPath = dataPath + "fonts\\";
 	m_SoundPath = dataPath + "Sounds\\";
+	m_ScorePath = dataPath + "score.txt";
 	m_Soloud.init();
 }
 

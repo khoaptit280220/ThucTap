@@ -15,7 +15,6 @@
 #include"GSScore.h"
 #include "soloud.h"
 using namespace std;
-GSScore gsscore;
 GSPlay::GSPlay()
 {
 }
@@ -107,6 +106,7 @@ void GSPlay::Init()
 	button->SetSize(50, 50);
 	button->SetOnClick([]() {
 		GameStateMachine::GetInstance()->PopState();
+		//ResourceManagers::GetInstance()->StopSound("music_bg.wav");
 		});
 	m_listButton.push_back(button);
 	// button pause
@@ -116,6 +116,7 @@ void GSPlay::Init()
 	button_pause->SetSize(50, 50);
 	button_pause->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PAUSE);
+		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
 		});
 	m_listButton.push_back(button_pause);
 	//button replay
@@ -126,9 +127,10 @@ void GSPlay::Init()
 	button_replay->SetOnClick([]() {
 		
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);
+		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
 		});
 	m_listButton.push_back(button_replay);
-	
+
 	
 	// score
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
@@ -459,10 +461,9 @@ void GSPlay::Update(float deltaTime)
 		}
 		m_score->SetText("Game over, Your score: " + std::to_string(score));
 		m_score->Set2DPosition(Vector2(65, 300));
-
-		//gsscore.inFile(0);
-		if (score > GetScoreFile("src/score.txt")) {
-			SetScoreFile("src/score.txt", score);
+		
+		if (score > GetScoreFile(ResourceManagers::GetInstance()->m_ScorePath)) {
+			SetScoreFile(ResourceManagers::GetInstance()->m_ScorePath, score);
 		}	
 		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
 	}

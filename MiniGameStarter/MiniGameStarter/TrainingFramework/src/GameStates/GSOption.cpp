@@ -29,7 +29,7 @@ void GSOption::Init()
 	btnSound->Set2DPosition(Globals::screenWidth / 2, Globals::screenHeight / 2 - 110);
 	btnSound->SetSize(70, 70);
 	btnSound->SetOnClick([]() {
-		Globals::isSound = true;
+		//Globals::isSound = true;
 		});
 	m_listButton.push_back(btnSound);
 
@@ -39,7 +39,7 @@ void GSOption::Init()
 	btnOffSound->Set2DPosition(Globals::screenWidth / 2, Globals::screenHeight / 2 );
 	btnOffSound->SetSize(70, 70);
 	btnOffSound->SetOnClick([]() {
-		Globals::isSound = false;
+		//Globals::isSound = false;
 		});
 	m_listButton.push_back(btnOffSound);
 
@@ -49,7 +49,7 @@ void GSOption::Init()
 	btnMusic->Set2DPosition(Globals::screenWidth / 2, Globals::screenHeight / 2 + 110);
 	btnMusic->SetSize(70, 70);
 	btnMusic->SetOnClick([]() {
-		Globals::isMusic = true;
+		//Globals::isMusic = true;
 		});
 	m_listButton.push_back(btnMusic);
 
@@ -59,7 +59,7 @@ void GSOption::Init()
 	btnOffMusic->Set2DPosition(Globals::screenWidth / 2, Globals::screenHeight / 2 + 220);
 	btnOffMusic->SetSize(70, 70);
 	btnOffMusic->SetOnClick([]() {
-		Globals::isMusic = false;
+		//Globals::isMusic = false;
 		});
 	m_listButton.push_back(btnOffMusic);
 
@@ -70,7 +70,8 @@ void GSOption::Init()
 	btnPrev->Set2DPosition(80, 50);
 	btnPrev->SetSize(50, 50);
 	btnPrev->SetOnClick([]() {
-		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_MENU);
+		GameStateMachine::GetInstance()->PopState();
+		ResourceManagers::GetInstance()->PlaySound("music_bg.wav");
 		});
 	m_listButton.push_back(btnPrev);
 

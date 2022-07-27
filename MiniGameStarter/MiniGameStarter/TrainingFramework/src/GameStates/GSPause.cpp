@@ -30,6 +30,7 @@ void GSPause::Init()
 	button_resume->SetSize(55, 55);
 	button_resume->SetOnClick([]() {
 		GameStateMachine::GetInstance()->PopState();
+		//ResourceManagers::GetInstance()->StopSound("music_bg.wav");
 		});
 	m_listButton.push_back(button_resume);
 
@@ -40,6 +41,7 @@ void GSPause::Init()
 	button_replay->SetSize(55, 55);
 	button_replay->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);
+		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
 		});
 	m_listButton.push_back(button_replay);
 
@@ -50,6 +52,7 @@ void GSPause::Init()
 	button_HighScore->SetSize(55, 55);
 	button_HighScore->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_HIGHSCORE);
+		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
 		});
 	m_listButton.push_back(button_HighScore);
 	
@@ -60,6 +63,7 @@ void GSPause::Init()
 	button_setting->SetSize(55, 55);
 	button_setting->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_OPTION);
+		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
 		});
 	m_listButton.push_back(button_setting);
 	//title resume
@@ -76,6 +80,9 @@ void GSPause::Init()
 	// title setting
 	m_text_setting = std::make_shared< Text>(shader, font, "Setting", Vector4(0.5f, 0.5f, 0.0f, 1.0f), 1.0f);
 	m_text_setting->Set2DPosition(Vector2(160, 695));
+
+	ResourceManagers::GetInstance()->PlaySound("music_bg.wav");
+
 }
 
 void GSPause::Exit()

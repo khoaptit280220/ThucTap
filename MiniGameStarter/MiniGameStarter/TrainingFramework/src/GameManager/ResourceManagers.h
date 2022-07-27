@@ -35,6 +35,8 @@ public:
 	std::shared_ptr<Model> GetModel(const std::string& name);
 	std::shared_ptr<Font> GetFont(const std::string& name);
 
+	std::string m_ScorePath;
+
 	//Sound
 	void AddSound(const std::string& name);
 	void PlaySound(const std::string& name, bool loop = false);
@@ -49,6 +51,7 @@ private:
 	std::string m_TexturePath;
 	std::string m_ModelsPath;
 	std::string m_FontPath;
+	
 
 	//Sound
 	std::string m_SoundPath;

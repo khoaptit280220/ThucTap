@@ -35,11 +35,11 @@ int GSScore::GetScoreFile(std::string fileName) {
 }
 void GSScore::Init()
 {
-
-	std::string text_HighScore = std::to_string(GetScoreFile("src/score.txt"));
+	ResourceManagers::GetInstance()->PlaySound("music_bg.wav");
+	std::string text_HighScore = std::to_string(GetScoreFile(ResourceManagers::GetInstance()->m_ScorePath));
 
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("./images/background_menu.tga");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_main_menu.tga");
 
 	// background
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
@@ -54,6 +54,7 @@ void GSScore::Init()
 	button_prev->SetSize(50, 50);
 	button_prev->SetOnClick([]() {
 		GameStateMachine::GetInstance()->PopState();
+		//ResourceManagers::GetInstance()->StopSound("music_bg.wav");
 		});
 	m_listButton.push_back(button_prev);
 

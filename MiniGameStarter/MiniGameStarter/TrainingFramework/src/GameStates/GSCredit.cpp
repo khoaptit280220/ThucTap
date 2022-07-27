@@ -30,7 +30,8 @@ void GSCredit::Init()
 	btnPrev->Set2DPosition(80, 50);
 	btnPrev->SetSize(50, 50);
 	btnPrev->SetOnClick([]() {
-		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_MENU);
+		GameStateMachine::GetInstance()->PopState();
+		ResourceManagers::GetInstance()->PlaySound("music_bg.wav");
 		});
 	m_listButton.push_back(btnPrev);
 
@@ -43,7 +44,7 @@ void GSCredit::Init()
 	m_textCreatorName->Set2DPosition(Vector2(100, 300));
 
 	std::string name = "music_bg.wav";
-	if (Globals::isMusic) {
+	/*if (Globals::isMusic)*/ {
 		ResourceManagers::GetInstance()->PlaySound(name);
 	}
 	
