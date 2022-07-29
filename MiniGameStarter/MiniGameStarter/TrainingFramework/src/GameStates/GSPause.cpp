@@ -15,7 +15,7 @@ GSPause::~GSPause() {}
 void GSPause::Init()
 {
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_main_menu.tga");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_menu.tga");
 
 	// background
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
@@ -26,62 +26,62 @@ void GSPause::Init()
 	// button resume
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_play.tga");
 	std::shared_ptr<GameButton> button_resume = std::make_shared<GameButton>(model, shader, texture);
-	button_resume->Set2DPosition(200, 345);
+	button_resume->Set2DPosition(240, 345);
 	button_resume->SetSize(55, 55);
 	button_resume->SetOnClick([]() {
 		GameStateMachine::GetInstance()->PopState();
-		//ResourceManagers::GetInstance()->StopSound("music_bg.wav");
+		
 		});
 	m_listButton.push_back(button_resume);
 
 	//button replay
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_restart.tga");
 	std::shared_ptr<GameButton>  button_replay = std::make_shared<GameButton>(model, shader, texture);
-	button_replay->Set2DPosition(200, 445);
+	button_replay->Set2DPosition(240, 445);
 	button_replay->SetSize(55, 55);
 	button_replay->SetOnClick([]() {
-		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);
 		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
-		});
+		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);	
+	});
 	m_listButton.push_back(button_replay);
 
 	//button high score
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_menu.tga");
 	std::shared_ptr<GameButton> button_HighScore = std::make_shared<GameButton>(model, shader, texture);
-	button_HighScore->Set2DPosition(200, 545);
+	button_HighScore->Set2DPosition(240, 545);
 	button_HighScore->SetSize(55, 55);
 	button_HighScore->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_HIGHSCORE);
-		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
+		
 		});
 	m_listButton.push_back(button_HighScore);
 	
 	//button setting
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_settings.tga");
 	std::shared_ptr<GameButton> button_setting = std::make_shared<GameButton>(model, shader, texture);
-	button_setting->Set2DPosition(200, 645);
+	button_setting->Set2DPosition(240, 645);
 	button_setting->SetSize(55, 55);
 	button_setting->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_OPTION);
-		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
+		
 		});
 	m_listButton.push_back(button_setting);
 	//title resume
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
 	m_text_resume = std::make_shared< Text>(shader, font, "Resume", Vector4(0.5f, 0.5f, 0.0f, 1.0f), 1.0f);
-	m_text_resume->Set2DPosition(Vector2(165, 395));
+	m_text_resume->Set2DPosition(Vector2(200, 395));
 	// tile replay
 	m_text_replay = std::make_shared< Text>(shader, font, "Replay", Vector4(0.5f, 0.5f, 0.0f, 1.0f), 1.0f);
-	m_text_replay->Set2DPosition(Vector2(165, 495));
+	m_text_replay->Set2DPosition(Vector2(200, 495));
 	//title high score
 	m_text_HighScore = std::make_shared< Text>(shader, font, "High Score", Vector4(0.5f, 0.5f, 0.0f, 1.0f), 1.0f);
-	m_text_HighScore->Set2DPosition(Vector2(165, 595));
+	m_text_HighScore->Set2DPosition(Vector2(190, 595));
 	// title setting
 	m_text_setting = std::make_shared< Text>(shader, font, "Setting", Vector4(0.5f, 0.5f, 0.0f, 1.0f), 1.0f);
-	m_text_setting->Set2DPosition(Vector2(160, 695));
+	m_text_setting->Set2DPosition(Vector2(200, 695));
 
-	ResourceManagers::GetInstance()->PlaySound("music_bg.wav");
+	
 
 }
 

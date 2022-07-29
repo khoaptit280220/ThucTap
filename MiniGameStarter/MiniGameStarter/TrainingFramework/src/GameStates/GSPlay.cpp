@@ -14,6 +14,7 @@
 #include<fstream>
 #include"GSScore.h"
 #include "soloud.h"
+#include "GameConfig.h"
 using namespace std;
 GSPlay::GSPlay()
 {
@@ -55,7 +56,7 @@ void GSPlay::SetScoreFile(std::string fileName, int Max_score) {
 
 void GSPlay::Init()
 {
-	ResourceManagers::GetInstance()->PlaySound("music_bg.wav", true);
+	
 	listPosXObstacle.push_back(0);
 	listPosXObstacle.push_back(160);
 	listPosXObstacle.push_back(320);
@@ -105,8 +106,9 @@ void GSPlay::Init()
 	button->Set2DPosition(200, 25);
 	button->SetSize(50, 50);
 	button->SetOnClick([]() {
-		GameStateMachine::GetInstance()->PopState();
-		//ResourceManagers::GetInstance()->StopSound("music_bg.wav");
+		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
+		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_MENU);
+		
 		});
 	m_listButton.push_back(button);
 	// button pause
@@ -116,7 +118,7 @@ void GSPlay::Init()
 	button_pause->SetSize(50, 50);
 	button_pause->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PAUSE);
-		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
+		
 		});
 	m_listButton.push_back(button_pause);
 	//button replay
@@ -128,6 +130,10 @@ void GSPlay::Init()
 		
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);
 		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
+		if (Globals::isMusic == 1) {
+			ResourceManagers::GetInstance()->PlaySound("music_bg.wav", true);
+		}
+		
 		});
 	m_listButton.push_back(button_replay);
 
@@ -310,7 +316,7 @@ void GSPlay::Update(float deltaTime)
 
 		//move ob
 		if (y_ob1 < Globals::screenHeight + 35) {
-			y_ob1 += 50 * deltaTime;
+			y_ob1 += speed * deltaTime;
 			m_obstacle11->Set2DPosition(x_ob1, y_ob1);
 			if (x_ob1 > 320) coin1->Set2DPosition(x_ob1 - 320, y_ob1);
 			else coin1->Set2DPosition(x_ob1 + 160, y_ob1);
@@ -328,7 +334,7 @@ void GSPlay::Update(float deltaTime)
 		}
 
 		if (y_ob2 < Globals::screenHeight + 35) {
-			y_ob2 += 50 * deltaTime;
+			y_ob2 += speed * deltaTime;
 			if (y_ob2 == -35) {
 				int index = 0 + rand() % listPosXObstacle.size();
 				x_ob2 = listPosXObstacle[index] + x_ob;
@@ -350,7 +356,7 @@ void GSPlay::Update(float deltaTime)
 		}
 
 		if (y_ob3 < Globals::screenHeight + 35) {
-			y_ob3 += 50 * deltaTime;
+			y_ob3 += speed * deltaTime;
 			if (y_ob3 == -35) {
 				int index = 0 + rand() % listPosXObstacle.size();
 				x_ob3 = listPosXObstacle[index] + x_ob;
@@ -372,7 +378,7 @@ void GSPlay::Update(float deltaTime)
 		}
 
 		if (y_ob4 < Globals::screenHeight + 35) {
-			y_ob4 += 50 * deltaTime;
+			y_ob4 += speed * deltaTime;
 			if (y_ob4 == -35) {
 				int index = 0 + rand() % listPosXObstacle.size();
 				x_ob4 = listPosXObstacle[index] + x_ob;
@@ -397,13 +403,13 @@ void GSPlay::Update(float deltaTime)
 		switch (m_KeyPress)
 		{
 		case 1:
-			if (x_fish > (float)Globals::screenWidth / 6) {
+			if (x_fish >= (float)Globals::screenWidth / 6) {
 				x_fish -= 150 * deltaTime;
 				m_fish->Set2DPosition(x_fish, y_fish);
 			}
 			break;
 		case 4:
-			if (x_fish < 5 * (float)Globals::screenWidth / 6) {
+			if (x_fish <= 5 * (float)Globals::screenWidth / 6) {
 				x_fish += 150 * deltaTime;
 				m_fish->Set2DPosition(x_fish, y_fish);
 			}
@@ -414,29 +420,55 @@ void GSPlay::Update(float deltaTime)
 
 		if (CheckCoin1() && isDrawCoin1) {
 			score += 1;
-			ResourceManagers::GetInstance()->PlaySound("point.wav", false);
+			if (Globals::isSound==1) {
+				ResourceManagers::GetInstance()->PlaySound("point.wav", false);
+			}
+			
 			isDrawCoin1 = false;
 			m_score->SetText("score: " + std::to_string(score));
 		}
 		if (CheckCoin2() && isDrawCoin2) {
 			score += 1;
-			ResourceManagers::GetInstance()->PlaySound("point.wav", false);
+			if (Globals::isSound==1) {
+				ResourceManagers::GetInstance()->PlaySound("point.wav", false);
+			}
 			isDrawCoin2 = false;
 			m_score->SetText("score: " + std::to_string(score));
 		}
 		if (CheckCoin3() && isDrawCoin3) {
 			score += 1;
-			ResourceManagers::GetInstance()->PlaySound("point.wav", false);
+			if (Globals::isSound==1) {
+				ResourceManagers::GetInstance()->PlaySound("point.wav", false);
+			}
 			isDrawCoin3 = false;
 			m_score->SetText("score: " + std::to_string(score));
 		}
 		if (CheckCoin4() && isDrawCoin4) {
 			score += 1;
-			ResourceManagers::GetInstance()->PlaySound("point.wav", false);
+			if (Globals::isSound==1) {
+				ResourceManagers::GetInstance()->PlaySound("point.wav", false);
+			}
 			isDrawCoin4 = false;
 			m_score->SetText("score: " + std::to_string(score));
 		}
-
+		if (score == 3) {
+			speed = 60;
+		}
+		else if (score == 6) {
+			speed = 70;
+		}
+		else if (score == 10) {
+			speed = 90;
+		}
+		else if (score == 13) {
+			speed = 100;
+		}
+		else if (score == 16) {
+			speed = 120;
+		}
+		else if (score == 20) {
+			speed = 150;
+		}
 		for (auto it : m_listButton)
 		{
 			it->Update(deltaTime);
@@ -448,19 +480,23 @@ void GSPlay::Update(float deltaTime)
 				it->Update(deltaTime);
 			}
 		}
+		
 	}
 
 	else 
 	{
 		
 		if (!die) {
-			ResourceManagers::GetInstance()->PlaySound("hit.wav", false);
-			ResourceManagers::GetInstance()->PlaySound("die.wav", false);
+			if (Globals::isSound == 1) {
+				ResourceManagers::GetInstance()->PlaySound("hit.wav", false);
+				ResourceManagers::GetInstance()->PlaySound("die.wav", false);
+			}
+			
 			die = true;
 			return;
 		}
 		m_score->SetText("Game over, Your score: " + std::to_string(score));
-		m_score->Set2DPosition(Vector2(65, 300));
+		m_score->Set2DPosition(Vector2(75, 300));
 		
 		if (score > GetScoreFile(ResourceManagers::GetInstance()->m_ScorePath)) {
 			SetScoreFile(ResourceManagers::GetInstance()->m_ScorePath, score);

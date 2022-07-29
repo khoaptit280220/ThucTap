@@ -15,7 +15,7 @@ GSCredit::~GSCredit()
 void GSCredit::Init()
 {
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_main_menu.tga");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_menu.tga");
 
 	// background
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
@@ -31,22 +31,19 @@ void GSCredit::Init()
 	btnPrev->SetSize(50, 50);
 	btnPrev->SetOnClick([]() {
 		GameStateMachine::GetInstance()->PopState();
-		ResourceManagers::GetInstance()->PlaySound("music_bg.wav");
-		});
+		if (Globals::isMusic == 1) {
+			ResourceManagers::GetInstance()->PlaySound("music_bg.wav", true);
+		}
+	});
 	m_listButton.push_back(btnPrev);
 
 	// game title
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
 	m_textGameName = std::make_shared< Text>(shader, font, "Fish Run", Vector4(1.0f, 0.5f, 0.0f, 1.0f), 3.0f);
-	m_textGameName->Set2DPosition(Vector2(100, 200));
+	m_textGameName->Set2DPosition(Vector2(100, 220));
 	m_textCreatorName = std::make_shared< Text>(shader, font, "Creator: Ngo Khoa", Vector4(1.0f, 0.5f, 0.0f, 1.0f), 1.0f);
 	m_textCreatorName->Set2DPosition(Vector2(100, 300));
-
-	std::string name = "music_bg.wav";
-	/*if (Globals::isMusic)*/ {
-		ResourceManagers::GetInstance()->PlaySound(name);
-	}
 	
 }
 

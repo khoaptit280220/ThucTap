@@ -84,5 +84,6 @@ private:
 	bool isDrawCoin3 = true;
 	bool isDrawCoin4 = true;
 	bool die = false;
+	float speed = 50.0f;
 };
 

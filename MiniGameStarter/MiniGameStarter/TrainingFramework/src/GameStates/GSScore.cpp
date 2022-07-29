@@ -35,11 +35,11 @@ int GSScore::GetScoreFile(std::string fileName) {
 }
 void GSScore::Init()
 {
-	ResourceManagers::GetInstance()->PlaySound("music_bg.wav");
+	
 	std::string text_HighScore = std::to_string(GetScoreFile(ResourceManagers::GetInstance()->m_ScorePath));
 
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_main_menu.tga");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_menu.tga");
 
 	// background
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
@@ -54,7 +54,7 @@ void GSScore::Init()
 	button_prev->SetSize(50, 50);
 	button_prev->SetOnClick([]() {
 		GameStateMachine::GetInstance()->PopState();
-		//ResourceManagers::GetInstance()->StopSound("music_bg.wav");
+		
 		});
 	m_listButton.push_back(button_prev);
 
@@ -64,7 +64,7 @@ void GSScore::Init()
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
 	m_text_highScore = std::make_shared< Text>(shader, font, "Highest Score = " + text_HighScore, Vector4(1.0f, 0.3f, 0.0f, 1.0f), 1.2f);
-	m_text_highScore->Set2DPosition(Vector2(85, 400));
+	m_text_highScore->Set2DPosition(Vector2(130, 300));
 
 
 

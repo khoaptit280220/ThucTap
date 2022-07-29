@@ -9,6 +9,7 @@
 #include "GameObject/Text.h"
 
 
+
 ResourceManagers::ResourceManagers()
 {
 	std::string dataPath = "..\\Data\\";
