@@ -40,7 +40,7 @@ void GSPause::Init()
 	button_replay->Set2DPosition(240, 445);
 	button_replay->SetSize(55, 55);
 	button_replay->SetOnClick([]() {
-		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
+		//ResourceManagers::GetInstance()->StopSound("music_bg.wav");
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);	
 	});
 	m_listButton.push_back(button_replay);

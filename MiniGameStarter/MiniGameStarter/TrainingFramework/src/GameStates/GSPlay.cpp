@@ -117,8 +117,7 @@ void GSPlay::Init()
 	button_pause->Set2DPosition(425, 25);
 	button_pause->SetSize(50, 50);
 	button_pause->SetOnClick([]() {
-		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PAUSE);
-		
+		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PAUSE);		
 		});
 	m_listButton.push_back(button_pause);
 	//button replay
@@ -129,10 +128,10 @@ void GSPlay::Init()
 	button_replay->SetOnClick([]() {
 		
 		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);
-		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
+		/*ResourceManagers::GetInstance()->StopSound("music_bg.wav");
 		if (Globals::isMusic == 1) {
 			ResourceManagers::GetInstance()->PlaySound("music_bg.wav", true);
-		}
+		}*/
 		
 		});
 	m_listButton.push_back(button_replay);
@@ -501,7 +500,9 @@ void GSPlay::Update(float deltaTime)
 		if (score > GetScoreFile(ResourceManagers::GetInstance()->m_ScorePath)) {
 			SetScoreFile(ResourceManagers::GetInstance()->m_ScorePath, score);
 		}	
-		ResourceManagers::GetInstance()->StopSound("music_bg.wav");
+		if (Globals::isMusic == 1) {
+			ResourceManagers::GetInstance()->StopSound("music_bg.wav");
+		}
 	}
 	
 }

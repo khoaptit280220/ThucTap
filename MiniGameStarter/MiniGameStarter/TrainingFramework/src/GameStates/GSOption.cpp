@@ -63,9 +63,12 @@ void GSOption::Init()
 	btnOffMusic->Set2DPosition(Globals::screenWidth / 2, Globals::screenHeight / 2 + 220);
 	btnOffMusic->SetSize(70, 70);
 	btnOffMusic->SetOnClick([]() {
-		Globals::isMusic = 0;
-		std::string name = "music_bg.wav";
-		ResourceManagers::GetInstance()->StopSound(name);
+		
+		if (Globals::isMusic == 1) {
+			Globals::isMusic = 0;
+			std::string name = "music_bg.wav";
+			ResourceManagers::GetInstance()->StopSound(name);
+		}
 		});
 	m_listButton.push_back(btnOffMusic);
 
